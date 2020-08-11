@@ -90,19 +90,20 @@ Return the resulting output array.
 const fizzbuzz = (arr) => {
   const numArray = [];
   arr.forEach( function(item, index, array) {
-    if(item%3 === 0) {
+    if(item % 3 === 0) {
       numArray.push('Fizz');
     } 
-    if(item%5 === 0) {
+    if(item % 5 === 0) {
       numArray.push('Buzz');
     }
-    if(item%3 === 0 & item%5 === 0) {
+    if(item % 3 === 0 && item % 5 === 0) {
       numArray.push('Fizz Buzz');
-    } else {
+    } 
+    else if (item % 3 != 0 && item % 5 != 0 ){
       numArray.push(item);
     };
     return numArray;
-  });
+  }) // The closing paren for the forEach method must be in the wrong spot I know :( Also not sure what else to do here)
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
