@@ -88,8 +88,21 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
-};
+  const numArray = [];
+  arr.forEach( function(item, index, array) {
+    if(item%3 === 0) {
+      numArray.push('Fizz');
+    } 
+    if(item%5 === 0) {
+      numArray.push('Buzz');
+    }
+    if(item%3 === 0 & item%5 === 0) {
+      numArray.push('Fizz Buzz');
+    } else {
+      numArray.push(item);
+    };
+    return numArray;
+  });
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
