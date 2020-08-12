@@ -18,7 +18,7 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const changeAllClassNames = () => {
-  // Solution code here...
+  $('li').addClass('fruit')// Solution code here...
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,9 +28,19 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  // Solution code here...
-};
 
+  function compare(a,b) {
+    if(a < b) {
+      return 1;
+    } else if(a > b) {
+      return -1;
+    }else {
+      return 0;
+   }
+}
+arr.sort(compare);
+return arr;
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -42,9 +52,18 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  function compare(a,b) {
+    if(a > b) {
+      return 1;
+    } else if(a < b) {
+      return -1;
+    } else {
+      return 0;
+   }
+  }
+  arr.sort(compare);
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -52,7 +71,17 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  // Solution code here...
+  function compare(a,b) {
+    if(a.length < b.length) {
+      return -1;
+    } else if(b.length > a.length) {
+      return 1;
+    } else {
+      return 0;
+   }
+  }
+  arr.sort(compare);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,9 +93,18 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  function compare(a,b) {
+    if(a.toLowerCase() > b.toLowerCase()) {
+      return -1;
+    } else if(b.toLowerCase() < a.toLowerCase()) {
+      return 1;
+    } else {
+      return 0;
+   }
+  }
+  arr.sort(compare);
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -81,9 +119,15 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort(compare);
+  function compare(a,b) {
+    if (a > b) return 1;
+    if (b > a) return -1;
+  
+    return 0;
+  }
 };
-
+return arr;
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
@@ -115,7 +159,21 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  function compare(a,b) {
+    
+    const person1 = a.lastName.toUpperCase();
+    const person2 = b.lastName.toUpperCase();
+  
+    let comparison = 0;
+    if (person1 > person2) {
+      comparison = 1;
+    } else if (person1 < person2) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+  
+  arr.sort(compare);
 };
 
 /* ------------------------------------------------------------------------------------------------
