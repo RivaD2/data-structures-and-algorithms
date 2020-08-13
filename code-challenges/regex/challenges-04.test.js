@@ -23,8 +23,10 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const generateSubmitButton = () => {
-  // Solution code here...
+  const buttonSubmit = $('<button>submit</button>');
+  $('form').append(buttonSubmit);
 }
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -39,7 +41,12 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  let numberTest = /\d/;
+  if (numberTest.test(input)){
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,9 +58,9 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
-};
-
+ const capitalLetterMatch = /[A-Z]\w+/g
+}
+isCapitalized.match(capitalLetterMatch);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -61,9 +68,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+ const newArray = /[A-J]\w+/g
 };
-
+citiesAtoJ.test(newArray);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
