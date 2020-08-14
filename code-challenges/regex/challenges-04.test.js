@@ -42,12 +42,9 @@ For example:
 
 const isNum = (input) => {
   let numberTest = /\d/;
-  if (numberTest.test(input)){
-    return true;
-  } else {
-    return false;
-  }
-};
+  //(numberTest.test(input));
+  return numberTest.test(input);
+} 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -58,9 +55,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
- const capitalLetterMatch = /[A-Z]\w+/g
+ const capitalLetterMatch = /[A-Z]\w+/g;
+//  capitalLetterMatch.match(str);
+// null is falsy so it will fallback to empty array
+//if match doesn't find anything then it will return null
+ return str.match(capitalLetterMatch) || [];
 }
-isCapitalized.match(capitalLetterMatch);
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -68,9 +69,17 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
- const newArray = /[A-J]\w+/g
+ const newArray = /^[A-J]\w+/;
+ const result =[];
+ arr.forEach(city => {
+   if(newArray.test(city)) {
+     result.push(city);
+   }
+   //city.test will return true if cities are equal A-J.
+ })
+ return result;
 };
-citiesAtoJ.test(newArray);
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
