@@ -37,9 +37,16 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-  // Solution code here...
-}
+  starWarsPeople.forEach(people => {
+  const template = $('#template').clone();
+    template.find($('h2').text(people[0].name));
+    template.find($('h3').text(people[1].height));
+    template.find($('p').text(people[2].eye_color));
+    $('main').append(template);
 
+});
+
+// through star wars people, then clone template, then find different attr forEach person, assign attribute to each of them, then use dot notation to find each element in template
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -55,7 +62,11 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  str.forEach(index => {
+    if(index < str.length + 1 ) {
+      result.push(str.slice(index));
+    }
+  })
   return result;
 };
 
@@ -68,7 +79,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split('');
 };
 
 
@@ -115,9 +126,11 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
-};
+  recipe.forEach( foodItem => {
+    const parts = recipe.split(0,until);
+    str.lastIndexOf('ingredients','steps');
+   return result;
+});
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -340,4 +353,5 @@ xdescribe('Testing challenge 11', () => {
 
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
-};
+}
+}
