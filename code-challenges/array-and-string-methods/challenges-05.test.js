@@ -37,14 +37,14 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-  starWarsPeople.forEach(people => {
-  const template = $('#template').clone();
-    template.find($('h2').text(people[0].name));
-    template.find($('h3').text(people[1].height));
-    template.find($('p').text(people[2].eye_color));
+  starWarsPeople.forEach(person => {
+    const template = $('#template').clone();
+    template.find($('h2').text(person.name));
+    template.find($('h3').text(person.height));
+    template.find($('p').text(person.eye_color));
     $('main').append(template);
-
-});
+  })
+}
 
 // through star wars people, then clone template, then find different attr forEach person, assign attribute to each of them, then use dot notation to find each element in template
 /* ------------------------------------------------------------------------------------------------
@@ -62,11 +62,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  str.forEach(index => {
-    if(index < str.length + 1 ) {
-      result.push(str.slice(index));
-    }
-  })
+  for(let i = 0; i < str.length + 1;i ++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
@@ -126,11 +124,20 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  recipe.forEach( foodItem => {
-    const parts = recipe.split(0,until);
-    str.lastIndexOf('ingredients','steps');
+  recipe.ingredients.forEach (str => {
+    // indexOfSpace finds first space in string
+    let indexOfSpace = str.indexOf(' '); 
+    str = str.slice(indexOfSpace + 1); // we find the index and slice it to remove indexes before the space
+    indexOfSpace = str.indexOf(' ');
+    str = str.slice(indexOfSpace + 1)
+
+  // we slice the same string everytime because of loop and so it will slice until there are no spaces
+  // we then push what is left (only one word) into new array
+    result.push(str);
+  }) 
    return result;
-});
+}
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -142,9 +149,15 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
-  return result;
-};
+  recipe.ingredients.forEach (str => {
+    str = str.split(' '); // I will have array of all words
+    str = str.slice(2);  // now we need to turn array back into string 
+    //we will use join() to turn array into strings
+    str = str.join(' ');
+    result.push(str);
+ })
+ return result;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -283,7 +296,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
@@ -353,5 +366,4 @@ xdescribe('Testing challenge 11', () => {
 
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
-}
-}
+};
