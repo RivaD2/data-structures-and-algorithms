@@ -20,8 +20,8 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const addTea = () => {
-  // Solution code here...
-}
+$('ul').append('<li>tea</li>');
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -34,7 +34,12 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let newArray = [];
+  for(let i =0; i < arr.length; i++){
+    let num = Math.pow(2, arr[i]);
+    newArray.push(num);
+  }
+    return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,9 +49,13 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  let newArray =[];
+  arr.forEach(num => {
+  let answer = Math.pow(2, num);
+  newArray.push(answer);
+  });
+  return newArray;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -54,8 +63,14 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  let newArray = [];
+  arr.map (num => {
+    let answer =Math.pow(2,num);
+    newArray.push(answer);
+  })
+  return newArray;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -68,8 +83,7 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
-};
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
