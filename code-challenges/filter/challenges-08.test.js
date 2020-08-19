@@ -22,8 +22,8 @@ const createServer = () => {
 
 
 function sayHello(request, response){
-  // Solution code here...
-}
+  response.send('Hello from the back-end');
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -34,8 +34,9 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
-};
+    return arr.filter(n => n%2);
+  };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -49,7 +50,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let rex = /[aeiou]/i;
+ return arr.filter(str => rex.test(str));
 };
 
 
@@ -62,9 +64,14 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+ const array1 = arr.filter(function(item) {
+    return !forbiddenValues.includes(item);
+  });
+  return array1;
 };
-
+//filter needs to go over array and check to see that there are no values from forbiddenValues
+// if we only wanted indexes from forbiddenValues, remove ! (because this would be true)
+//only checking booleans
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
