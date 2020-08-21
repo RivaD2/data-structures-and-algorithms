@@ -160,15 +160,20 @@ const currentEvents = {
 }
 
 function getCurrentEvents(request, response){
-  // Solution code here...
+//   app.get('/location', locations);
+//   const thingToSearch = req.query.city
 }
 
 const mapCurrentEvents = () => {
-  // Solution code here...
+//   const eventsArray = req.query.description
 }
-
-function Event(obj){
-  // Solution code here...
+function Event(obj) {
+//   this.author = obj[0].author
+//   this.categories = obj[0].categories
+//   this.summary = obj[0].summary
+//   this.img_url = obj[0].image_url
+//   this.date = obj[0].date
+//   this.title = obj[0].title
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -180,9 +185,8 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce((indexAtZero) => indexAtZero +1, 0)
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -240,8 +244,9 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  const sumValues = starWarsData => Object.values(obj).reduce((a, b) => a + b);
 };
+return starWarsData;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
