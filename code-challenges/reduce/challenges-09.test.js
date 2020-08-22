@@ -25,8 +25,7 @@ const createServer = () => {
   const express=require('express');
   const app=express();
 
-  // Routes go here
-  // Solution code here...
+  app.get('/events',getCurrentEvents);
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
@@ -160,20 +159,21 @@ const currentEvents = {
 }
 
 function getCurrentEvents(request, response){
-//   app.get('/location', locations);
-//   const thingToSearch = req.query.city
+  response.send(mapCurrentEvents());
 }
 
+
 const mapCurrentEvents = () => {
-//   const eventsArray = req.query.description
+  return currentEvents.news.map(obj => new Event(obj));
 }
 function Event(obj) {
-//   this.author = obj[0].author
-//   this.categories = obj[0].categories
-//   this.summary = obj[0].summary
-//   this.img_url = obj[0].image_url
-//   this.date = obj[0].date
-//   this.title = obj[0].title
+   this.author = obj.author;
+   this.categories = obj.category;
+   this.summary = obj.summary;
+   this.img_url = obj.image_url;
+   this.language = obj.language;
+   this.title = obj.title;
+   this.date = obj.published.split(' ', [0]);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -185,7 +185,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  return arr.reduce((indexAtZero) => indexAtZero +1, 0)
+  return arr.reduce((indexAtZero) => indexAtZero + 1, 0)
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -244,9 +244,22 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  const sumValues = starWarsData => Object.values(obj).reduce((a, b) => a + b);
+  const subset = arr.reduce(function(acc, curr) {
+    // acc is the accumulator or value I am carrying with me on this journey
+    // The curr item we are iterating over AT THIS TIME (the item is the object here)
+    // This is an array of objects, so curr is ALWAYS one object in the array
+    // So, here I am assigning object's name property to const
+    // Then we push on the names onto the acc, which was our carried value
+    const name = curr.name;
+    acc.push(name);
+    // I return accumulator because it holds all the object's name properties
+    return acc;
+   }, [])
+   // the initital value is set to empty array because we have to push all values into it
+   // if we have a function, i can pass in args separated by commas
+   // In this case, the first arg is a function, so we have ENTIRE reduce function then a comma, then the next arg (which is the empty array or initial value)
+   return subset;
 };
-return starWarsData;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -255,9 +268,23 @@ Write a function named reversedString that takes in a string and returns a strin
 
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
-
+//we have a string and we need to go through letter by letter
+//if we have one letter at a time and we are building new str, then we know acc is the str
+// when we have our first letter and we get second letter we can just add them together
+//ex: 'q', 'riva'---to get 'riva', 'q' I would say, 'riva' + 'q'
 const reversedString = (str) => {
-  // Solution code here...
+  // use split method to turn string into array
+  //now I have an array of all the letters in order
+  // we pass in an empty str to str.split();
+  const splitString = str.split('');
+  //console.log(splitString);
+  //console.log(str);
+  const result = splitString.reduce((acc, curr) => {
+  //acc is the value I've built and current is next letter
+  // adding the curr and THEN the acc will reverse the string as each next letter is put before previous
+  return curr + acc;
+  }, '');
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -310,8 +337,25 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    // Every item in the iteration is an object and we want to access prop of object using dot notation
+    //HOWEVER, not every object has prop of CHILDREN
+    // SO, we have to use an IF statement to check IF the object HAS property OF children
+    // So, CURR is the item from the array we are iterating over AT THIS TIME
+    /* Since all of the objects do NOT have property of children, I said, IF the item we are iterating 
+    over DOES Have the prop of children, then we add the number of children to accumulator*/
+    if(curr.children != undefined) {
+      //add accumulator plus the length of children array or num of children
+      return acc + curr.children.length;
+    };
+    //if there is no prop of children of curr, then our acc value does not change
+    return acc;
+  },0) // initital value is 0
 };
+  
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -465,7 +509,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
