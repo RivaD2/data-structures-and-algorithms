@@ -3,7 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Build a simple express server. Connect a '/hello' route that sends a greeting of your  choice. Connect a '/aboutme' route that sends a short bio about you to the front-end. Finally, connect a '/favoritefoods' route that sends an array to the front-end of your favorite foods. All other routes should respond with a status of 404.
+Build a simple express server. Connect a '/hello' route that sends a greeting of your choice. Connect a '/aboutme' route that sends a short bio about you to the front-end. Finally, connect a '/favoritefoods' route that sends an array to the front-end of your favorite foods. All other routes should respond with a status of 404.
 ------------------------------------------------------------------------------------------------ */
 
 const createServer = () => {
@@ -13,14 +13,14 @@ const createServer = () => {
   
 
   var server = app.listen(3301, function () {
-    app.get('/hello', res => {
+    app.get('/hello', (req, res) => {
       res.send('Hello');
     });
-    app.get('/aboutme', res => {
-      res.send('My name is Riva and I like cats');
+    app.get('/aboutme', (req, res) => {
+       res.send('My name is Riva and I like cats');
     });
-    app.get('/favoritefoods', res => {
-      res.send('I love green onion pancakes');
+    app.get('/favoritefoods', (req, res) => {
+      res.send(['green onion pancakes', 'baba ganoush', 'plantain tacos', 'chorizo tacos']);
     });
 
     var port = server.address().port;
@@ -97,9 +97,28 @@ This function should then raise 2 to the power of the resulting numbers, returni
 
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
-
+// input is an array of arrays
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  //curr is the arrays inside of array
+  //curr is an array of nums
+  // using map we need to return a val (an array of nums)
+  return input.map((curr) => {
+    //return at some point
+    const newArray = curr.reduce((acc, num) => {
+      // if the modulo remainder is zero, then the numbers ARE DIVISIBLE
+      // The modulo works for anything that is an object or any strings with letters
+      // IF the string is a bunch of digits, then JS will convert it to an integer so I have to check to see if it is a string
+      // AND if the type of num is NOT A STRING, then add it to the BIG BAG (acc)
+      // If I was using filter, I would reverse my conditional to REMOVE things I don't want rather than adding things I do want
+      if( num%5 === 0 && typeof num !== 'string') {
+        // pushed numbers that are divisble by 5 as the exponent
+        // 2 is the base needed for Math.pow and num is the exponent (2 to the power of)
+        acc.push(Math.pow(2, num));
+      }
+      return acc; //creating the result of the acc here (calling reduce and reduce gives back the result)
+    },[]); // set initial val to array bec we need to return an array of nums
+    return newArray;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
