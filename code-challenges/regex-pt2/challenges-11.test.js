@@ -12,7 +12,12 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
-  // Solution code here...
+  const array =[];
+  people.map(person => {
+    let space = ' ';
+    array.push(person.firstName + space + person.lastName);
+});
+return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +29,12 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  const regExp = /\b\d{4}\b/;
+  if (regExp.test(pin)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,7 +54,13 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  let regex = /^\w+(|.)\w+@\w+.(com|net|org)$/;
+  if(regex.test(email)) {
+    console.log(email, 'is ', true);
+    return true;
+  }else {
+    console.log(email, 'is ', false);
+    return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -69,7 +85,9 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const validNumExp = /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/;
+  const validNumberMatch = validNumExp.test(phoneNumber);
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
