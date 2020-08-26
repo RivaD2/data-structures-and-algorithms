@@ -20,8 +20,9 @@ const $ = createSnippetWithJQuery(`
 `);
 
 const fixTheTypo = () => {
-// Solution code here...
-};
+  // eq(2) is the 3rd element
+  $( "li" ).eq( 2 ).text('Pear');
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -32,7 +33,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  // the first letter of each string is at index[0];
+  return arr.map(x => x[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,7 +46,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  //filtered the array and checks for true or false
+  // The include just says, Does the string element include :)? If so, returns true.
+  return arr.filter(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,9 +60,13 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    //start at 1 and remove 4, start at 6 and remove 9 and start at 10 and remove 14
+    const newString = curr.slice(1,4) + curr.slice(6,9) + curr.slice(10, 14);
+    acc.push(newString);
+    return acc
+}, []);
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
