@@ -36,7 +36,17 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
- 
+  //want to use map to turn array into another array
+  // Map will give us each string at a time
+  // I will need to get the first letter of the string and make it uppercase
+  // Once I have the first letter uppercase I gotta slice the new array at index one as index 0 is the capitalLetter
+  // Then I can take string of x and add it to newString (which is the missing piece of the string to be added to capital letter)
+  const upperCaseLetterArray = arr.map(x => { 
+    const firstLetter = x[0].toUpperCase();
+    const newString = x.slice(1);
+      return firstLetter + newString;
+  });
+  return upperCaseLetterArray;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -110,7 +120,30 @@ let starWarsData = [{
 }];
 
 let biggerThanLuke = (arr) => {
-  // Solution code here...
+  //curr is an object in the above array (so a person)
+  // Set mass of Luke to undefined because I don't want it is
+  //Defined massOfLuke outside of the reduce bec we need it after the function is returned
+  let massOfLuke = undefined;
+  const arrayOfNames = arr.reduce((acc, curr, index) => {
+     //so I am assuming in this case that Luke will always be first item in array
+     //index is the position in the array and if Luke is first, then he is always the first index
+     //index is a number in the array, index 0 = luke
+    if(index === 0) {
+      // we set mass of Luke to the mass of the first item in the array
+      // have to use parseInt to change the string values into integers otherwise the sort won't work because it sorts strings
+      // curr.mass is whoever we are looping over at the time
+      massOfLuke = parseInt(curr.mass);
+    }
+    else if (parseInt(curr.mass) > massOfLuke) {
+      //console.log('found Leia', curr.mass);
+      //if current person's mass in array is greater than Luke's then I push name of person into array
+      acc.push(curr.name);
+    }
+    //return the accumator first as that is the big bag of people who have a mass greater than Luke
+    return acc;
+  },[]) // array of names as initial value
+  //return the big bag of names and join them all with a dash
+  return arrayOfNames.join(' - ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,15 +161,21 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  arr.sort(property);
-  function property(a,b) {
-    if (a > b) return 1;
-    if (b > a) return -1;
-  
-    return 0;
+  //use sort and create my own function in this case, it is lowestToHigh
+  // Sorty compares any two objects
+  // sort takes in a function, in this case it is the lowestToHigh
+  // a & b are the objects to be sorted through
+  // In this case, we don't know name of property we are accessing so I had to use bracket notation instead
+  // The if statement says, if property at object a is > property at object b, then a will come first
+  // -1 means the second items goes first
+  arr.sort(lowestToHigh);
+  function lowestToHigh(a,b) {
+    if (a[property] > b[property]) return 1;
+    if (b[property] > a[property]) return -1;
+     return 0; // this is if property of a and b are the same
   }
+  return arr;
 };
-return arr;
 
 
 
