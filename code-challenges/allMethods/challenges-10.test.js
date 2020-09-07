@@ -184,9 +184,21 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
-
+  //filtered through each object and pulled out genders
+  let characterGenders = data.filter(function (people) {
+    //if the gender is male or female then add into the array
+    if(people.gender === 'male' || people.gender === 'female') {
+      return true;
+    }
+  });
+  // took previous array of objects and turned it into array of names
+  const names = characterGenders.map((item => {
+    //give me all names 
+    return item.name;
+  }))
+  // take all the names and join them with 'and'
+  return names.join(' and ');
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -281,7 +293,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+ describe('Testing challenge 5', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
