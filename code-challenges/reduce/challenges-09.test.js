@@ -366,8 +366,17 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+ /*start with zero and one by one add each value of the array to our initial value until
+  we’ve looped through the entire array. When done, the accumulator value will be returned*/
+  
+  const averageOfValues = arr.reduce((acc,curr) => {
+    // Here I said that we will loop through the array of nums and add them all together
+    return acc + curr;
+  },0)
+  //Once I have added them all together and divided them by the total number of numbers (length of the array)
+  return averageOfValues/arr.length;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -515,7 +524,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the average of the numbers in the array', () => {
     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
   });
