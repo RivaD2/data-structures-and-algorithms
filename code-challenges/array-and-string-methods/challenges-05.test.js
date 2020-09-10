@@ -236,8 +236,12 @@ For example, removeVowels('gregor') returns 'grgr'.
 const removeVowels = (str) => {
   //I decided to make my own method to remove all vowels using the prototype method (for practice)
   String.prototype.removeAllVowels = function() {
-    // The this is the string and I am saying to replace all the vowels with nothing in this prototype
-    return this.replace(/[aeiou]+/g, ''); //replace a, e, i, o and u with nothing.
+    /*using Regex Expression , the pattern is [aeiou] and patterns are always in brackets
+      -Flags in Regex are added to specify the parameters of the search pattern. 
+      -The g flag says to find all matches within the string (as opposed to just the first)
+      -The i flag says to ignore the case of the letters.
+      -// 'this' refers to the string and I am saying to replace all the vowels with nothing in this prototype*/
+    return this.replace(/[aeiou]+/g, '');
   }
   //Here I apply the new prototype to the str and return the new string
   return str.removeAllVowels();
