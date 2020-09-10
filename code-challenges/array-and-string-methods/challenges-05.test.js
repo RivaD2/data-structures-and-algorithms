@@ -234,8 +234,18 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
-};
+  //I decided to make my own method to remove all vowels using the prototype method (for practice)
+  String.prototype.removeAllVowels = function() {
+    /*using Regex Expression , the pattern is [aeiou] and patterns are always in brackets
+      -Flags in Regex are added to specify the parameters of the search pattern. 
+      -The g flag says to find all matches within the string (as opposed to just the first)
+      -The i flag says to ignore the case of the letters.
+      -// 'this' refers to the string and I am saying to replace all the vowels with nothing in this prototype*/
+    return this.replace(/[aeiou]+/g, '');
+  }
+  //Here I apply the new prototype to the str and return the new string
+  return str.removeAllVowels();
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
@@ -345,7 +355,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+ describe('Testing challenge 10', () => {
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
