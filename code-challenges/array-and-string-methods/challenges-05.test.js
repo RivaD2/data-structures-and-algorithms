@@ -189,8 +189,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -258,9 +259,17 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
-};
-
+  const result = [];
+    const newString = str.replace(/[aeiou]+/g, '');
+    const allVowels = str.replace(/[^aeiou]+/g, '');
+    result.push(newString);
+    const sortVowels = allVowels.split('');
+    sortVowels.sort();
+    const finalString = sortVowels.join('');
+    result.push(finalString);
+    return result;
+}
+ 
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
@@ -319,7 +328,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+ describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -364,7 +373,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
