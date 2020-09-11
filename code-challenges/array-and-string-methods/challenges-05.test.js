@@ -189,8 +189,9 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -258,9 +259,24 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
-};
-
+  const result = [];
+  // removing all vowels from string using Regex expression
+    const newString = str.replace(/[aeiou]+/g, '');
+    //Using another Regex Expression removes everything that isn't a vowel 
+    const allVowels = str.replace(/[^aeiou]+/g, '');
+    //pushed all letters without vowels into empty array
+    result.push(newString);
+    //split every character in string so I could sort it  but this made an array
+    const sortVowels = allVowels.split('');
+    //sorted all vowels in array
+    sortVowels.sort();
+    //created a new var that held all sorted vowels and used join to make the array a string again
+    const finalString = sortVowels.join('');
+    //pushed string with vowels removed and sorted alphabetically into the array that now holds newString(letters without vowels)
+    result.push(finalString);
+    return result;
+}
+ 
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
@@ -319,7 +335,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+ describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -364,7 +380,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
