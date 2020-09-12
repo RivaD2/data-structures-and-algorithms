@@ -170,9 +170,15 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
+  const extractVerbs = recipe.steps.map(step => {
+    // used map because I am taking an array and turning it into another array of same length
+    // map makes a new array and as it iterates it will push to the new array whatever the function returns
+    //used split to have an array of every word
+    const newArray = step.split(' ');
+    //returning the first word of this iteration
+      return newArray[0];
+  })
+  return extractVerbs;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -189,7 +195,10 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  
+  //findIndex, while loop and splice
+  const isEvenNumber = element => element % 2;
+  const indexOfEven = arr.findIndex(isEvenNumber);
+ 
 };
 
 
@@ -328,7 +337,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+ describe('Testing challenge 6', () => {
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
