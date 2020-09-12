@@ -195,10 +195,20 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  //findIndex, while loop and splice
-  const isEvenNumber = element => element % 2;
-  const indexOfEven = arr.findIndex(isEvenNumber);
- 
+  //findIndex, while loop and splice to remove elements from an array (splice uses(starting index, elements to be removed, additions))
+  // modulo will return a remainder which is 0 for even nums
+  // 0 is falsy so I said ==== 0 to make the result true (meaning num is even)
+  const isEvenNumber = element => element % 2 === 0;
+  let indexOfEven = arr.findIndex(isEvenNumber);
+  //go through the loop and find even numbers
+  while(indexOfEven !== -1) {
+    //once an even number is found, it gets spliced out
+    arr.splice(indexOfEven,1);
+    //after it is spliced out, we check again to see if there is another even num
+    //as long as there is an even number, while loop will run and when they are gone, indexOfEven will become -1 
+    //loop stops once -1 is returned as that proves there are no more even numbers to splice
+    indexOfEven = arr.findIndex(isEvenNumber);
+  };
 };
 
 
