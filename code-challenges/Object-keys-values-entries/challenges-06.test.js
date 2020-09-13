@@ -181,7 +181,24 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  const total = arr.reduce(acc, curr => {
+    //reduce will loop through array of people
+    //curr is a person obj
+    //set count to 1 as I know that that all objects have at least one character (name)
+    let count = 1;
+    //the next property to loop over is spouse
+    //if the current person object's property of spouse is NOT null, then add one
+    if(curr.spouse !== null) {
+      count++
+    } 
+    //count contains the characters listed in name prop and spouse prop
+    //here I add children prop to name and spouse and use length as each child prop is an array of names. Adding children names using length as empty arrays will have no length/no name to add
+    count = count + children.length;
+    /*With reduce I must return the acc + count (the acc only had the intital value of 0 so I had to add the count into the acc bag)*/
+    return acc + count;
+  },0)
+  //I return the total because it is the end of the acc;
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
