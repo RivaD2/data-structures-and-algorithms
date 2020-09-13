@@ -205,7 +205,22 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  const extractFunction = statsObject => { //<---one arg with no parens
+    /*I declared const of total and added the effort and baseStat properties
+      -These properties were part of the array of objects but NOT part of the stat object
+      - used dot notation to access props and added together for later use*/
+      const total = statsObject.effort + statsObject.baseStat;
+      /*I needed to return object so I created one using curly braces
+        -inside curly braces, I constructed object using dot notation and const total
+        - with map, I have to to return the value that I want in the array 
+        - everything from map until the return is the function*/
+      return {name: statsObject.stat.name , total: total};
+    }
+  /*used map to run through stat array of objects
+    -map is a method that accepts a function
+    -it returns an array where every element in array is result of calling that function on array item*/
+  return arr.map(extractFunction);
+  //returned the new array
 };
 
 /* ------------------------------------------------------------------------------------------------
