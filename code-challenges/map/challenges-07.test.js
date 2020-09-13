@@ -83,6 +83,12 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
+  //mapped through the array of strings
+  //map turned array of strings into array of results of charcodeAt on elements in first array
+  const newArray = arr.map(element => {
+    return element.charCodeAt();
+});
+return newArray;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,7 +102,16 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  const newArray = arr.map(element => {
+    if(typeof element != "number") {
+      return "N/A"
+    } else if(element % 2 === 0) {
+      return "even";
+    } else {
+      return "odd";
+    };
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -141,9 +156,10 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  // Solution code here...
-};
+const extractAbilities = (arr) =>  arr.map(abilityObj => abilityObj.ability.name);
+// mapped through the array of abilities
+//I extracted the ability names by using dot notation
+// ability is its own object inside the abilities object which is inside the Snorlax Abilites Obj
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -189,7 +205,22 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  const extractFunction = statsObject => { //<---one arg with no parens
+    /*I declared const of total and added the effort and baseStat properties
+      -These properties were part of the array of objects but NOT part of the stat object
+      - used dot notation to access props and added together for later use*/
+      const total = statsObject.effort + statsObject.baseStat;
+      /*I needed to return object so I created one using curly braces
+        -inside curly braces, I constructed object using dot notation and const total
+        - with map, I have to to return the value that I want in the array 
+        - everything from map until the return is the function*/
+      return {name: statsObject.stat.name , total: total};
+    }
+  /*used map to run through stat array of objects
+    -map is a method that accepts a function
+    -it returns an array where every element in array is result of calling that function on array item*/
+  return arr.map(extractFunction);
+  //returned the new array
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -243,14 +274,14 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the character code for each letter', () => {
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([ 67, 111, 100, 101, 51, 48, 49 ]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return an array containing the keys from an object', () => {
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]);
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541]).length).toStrictEqual(8);
@@ -272,14 +303,14 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing only the ability names', () => {
     expect(extractAbilities(snorlaxAbilities.abilities)).toStrictEqual(['gluttony', 'cute charm', 'immunity']);
     expect(extractAbilities(snorlaxAbilities.abilities).length).toStrictEqual(3);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array containing objects with name and total values', () => {
     expect(extractStats(snorlaxStats.stats)).toStrictEqual([
       { name: 'speed', total: 35, },
