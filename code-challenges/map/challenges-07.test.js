@@ -156,9 +156,10 @@ const snorlaxAbilities = {
   weight: 4600,
 };
 
-const extractAbilities = (arr) => {
-  // Solution code here...
-};
+const extractAbilities = (arr) =>  arr.map(abilityObj => abilityObj.ability.name);
+// mapped through the array of abilities
+//I extracted the ability names by using dot notation
+// ability is its own object inside the abilities object which is inside the Snorlax Abilites Obj
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
