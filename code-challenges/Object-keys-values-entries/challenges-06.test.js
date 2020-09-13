@@ -141,9 +141,39 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  /*set result to false because our function will tell us if character has children
+    -because I have several entries to loop through, any entry that is not children
+      will return false.
+      - if person has children, and it is true, then I have to look at next property
+        which means the result would be false again
+        -instead, I set result to false at the start, and only set it to true INSIDE function
+        -that way, if function sets it to true, the result can never be false again
+        */
+  let result = false;
+  //looping throgh an array of people
+  arr.forEach(person => {
+    //tring to match character that was passed in to a person obj
+    //if the character matches this person's name 
+    if(person.name === character) {
+      //then we pass in the person object and loop through the key value pairs
+      //obj.entries will create an array of key value pairs and for each loops through those
+      Object.entries(person).forEach(entry => {
+        //declaring the entry as a key value pair
+        //the first element is the key in the array and the second is the value
+        const [key, value] = entry;
+        //if the key matches string of children and the value has length 
+        //, then it is not an empty array
+        if (key === 'children' && value.length){
+          //therefore, this character has children
+          result = true;
+        } 
+      });
+      
+    }
+  }
+  );
+  return result;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -151,7 +181,24 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  const total = arr.reduce(acc, curr => {
+    //reduce will loop through array of people
+    //curr is a person obj
+    //set count to 1 as I know that that all objects have at least one character (name)
+    let count = 1;
+    //the next property to loop over is spouse
+    //if the current person object's property of spouse is NOT null, then add one
+    if(curr.spouse !== null) {
+      count++
+    } 
+    //count contains the characters listed in name prop and spouse prop
+    //here I add children prop to name and spouse and use length as each child prop is an array of names. Adding children names using length as empty arrays will have no length/no name to add
+    count = count + children.length;
+    /*With reduce I must return the acc + count (the acc only had the intital value of 0 so I had to add the count into the acc bag)*/
+    return acc + count;
+  },0)
+  //I return the total because it is the end of the acc;
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -236,7 +283,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
@@ -246,20 +293,20 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(26);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an object for each house containing the name and size', () => {
     expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
     expect(houseSize(characters).length).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should not include any deceased spouses', () => {
     expect(houseSurvivors(characters)).toStrictEqual([{ house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
   });
