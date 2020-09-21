@@ -69,14 +69,14 @@ let $ = createSnippetWithJQuery(`
 </script>
 `);
 
- const templatingWithMustache = () => {
-   newArray = [];
-   characters.forEach(character => {
-     let templateJQuery= $('#template').html();
-      newArray.push(Mustache.render(templateJQuery, character));
-   })
-   return Array;
-  };
+const templatingWithMustache = () => {
+  let newArray = [];
+  characters.forEach(character => {
+    let templateJQuery= $('#template').html();
+    newArray.push(Mustache.render(templateJQuery, character));
+  });
+  return newArray;
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -103,9 +103,9 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   for(let i =0; i < characters.length;i++) {
-  houses.push(arr[i].house);
-};
-return houses;
+    houses.push(arr[i].house);
+  }
+  return houses;
 };
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -120,7 +120,7 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-    for( let i of arr) {
+  for( let i of arr) {
     if(i.name === character) {
       if(Object.values(i.children)) {
         return true;
@@ -153,7 +153,7 @@ const hasChildrenEntries = (arr, character) => {
   //looping throgh an array of people
   arr.forEach(person => {
     //tring to match character that was passed in to a person obj
-    //if the character matches this person's name 
+    //if the character matches this person's name
     if(person.name === character) {
       //then we pass in the person object and loop through the key value pairs
       //obj.entries will create an array of key value pairs and for each loops through those
@@ -161,14 +161,14 @@ const hasChildrenEntries = (arr, character) => {
         //declaring the entry as a key value pair
         //the first element is the key in the array and the second is the value
         const [key, value] = entry;
-        //if the key matches string of children and the value has length 
+        //if the key matches string of children and the value has length
         //, then it is not an empty array
         if (key === 'children' && value.length){
           //therefore, this character has children
           result = true;
-        } 
+        }
       });
-      
+
     }
   }
   );
@@ -181,7 +181,7 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  const total = arr.reduce(acc, curr => {
+  const total = arr.reduce((acc, curr) => {
     //reduce will loop through array of people
     //curr is a person obj
     //set count to 1 as I know that that all objects have at least one character (name)
@@ -189,14 +189,14 @@ const totalCharacters = (arr) => {
     //the next property to loop over is spouse
     //if the current person object's property of spouse is NOT null, then add one
     if(curr.spouse !== null) {
-      count++
-    } 
+      count++;
+    }
     //count contains the characters listed in name prop and spouse prop
     //here I add children prop to name and spouse and use length as each child prop is an array of names. Adding children names using length as empty arrays will have no length/no name to add
-    count = count + children.length;
+    count = count + curr.children.length;
     /*With reduce I must return the acc + count (the acc only had the intital value of 0 so I had to add the count into the acc bag)*/
     return acc + count;
-  },0)
+  },0);
   //I return the total because it is the end of the acc;
   return total;
 };
@@ -213,7 +213,16 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  arr.forEach(person => {
+    /*running forEach over each object and getting the value from house property
+      - created a variable and assigned an object to it since I need an obj
+      - called the totalCharacters function and passed in an array with person
+         because totalCharacters function expects an array
+      - HOWEVER, we passed in only one person to get all of the names in the object.
+      */
+    const obj = {house: person.house , members: totalCharacters([person])};
+    sizes.push(obj);
+  });
   return sizes;
 };
 
