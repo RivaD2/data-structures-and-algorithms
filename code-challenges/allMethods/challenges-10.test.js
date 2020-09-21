@@ -10,14 +10,14 @@ const createServer = () => {
   const express = require('express');
   const app = express();
 
-  
+
 
   var server = app.listen(3301, function () {
     app.get('/hello', (req, res) => {
       res.send('Hello');
     });
     app.get('/aboutme', (req, res) => {
-       res.send('My name is Riva and I like cats');
+      res.send('My name is Riva and I like cats');
     });
     app.get('/favoritefoods', (req, res) => {
       res.send(['green onion pancakes', 'baba ganoush', 'plantain tacos', 'chorizo tacos']);
@@ -48,13 +48,13 @@ const count = (target, input) => {
     const targetCount = curr.reduce((result, num) => {
       // if the target (num) === num then add to it to results
       if( num === target) {
-        result++
+        result++;
       }
       return result;
     },0); // set intital value for second reduce function to 0
     return acc + targetCount;
   },0); // set initial val to 0 for first reducer
-   return value;
+  return value;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -193,12 +193,12 @@ let findMaleAndFemale = (data) => {
   });
   // took previous array of objects and turned it into array of names
   const names = characterGenders.map((item => {
-    //give me all names 
+    //give me all names
     return item.name;
-  }))
+  }));
   // take all the names and join them with 'and'
   return names.join(' and ');
-}
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -210,13 +210,13 @@ let findShortest = (data) => {
   const getCharacterName = data.reduce((acc, curr) => {
     // if the current object height property is less than or equal to the shortest person object so far then return it
     //used parseInt to take string value and give us an integer
-  if (parseInt(curr.height) <= parseInt(acc.height)){
-    return curr;
-  }
-  /*if the current object height property is not less than or equal to the shortest person object,
+    if (parseInt(curr.height) <= parseInt(acc.height)){
+      return curr;
+    }
+    /*if the current object height property is not less than or equal to the shortest person object,
   return to us the shortest person object*/
-  else return acc;
-  },data[0])
+    else return acc;
+  },data[0]);
   // Now that the shortest person object, give us the name property of that object
   return getCharacterName.name;
 };
@@ -305,14 +305,14 @@ describe('Testing challenge 4', () => {
   });
 });
 
- describe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
   });
 });
 
-  describe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the name of the shortest character', () => {
     expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
   });
