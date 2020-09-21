@@ -192,7 +192,8 @@ const totalCharacters = (arr) => {
       count++;
     }
     //count contains the characters listed in name prop and spouse prop
-    //here I add children prop to name and spouse and use length as each child prop is an array of names. Adding children names using length as empty arrays will have no length/no name to add
+    //here I add children prop to name and spouse and use length as each child prop is an array of names.
+    //Adding children names using length bec empty arrays will have no length/no name to add
     count = count + curr.children.length;
     /*With reduce I must return the acc + count (the acc only had the intital value of 0 so I had to add the count into the acc bag)*/
     return acc + count;
@@ -246,7 +247,38 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  //running forEach on each person obj
+  arr.forEach(person => {
+    //set result to equal an object with a members property and set prop to 0 as members is a count
+    const result = {members:0};
+    //used object.keys with forEach to loop through all keys in each person obj
+    Object.keys(person).forEach(key => {
+      //if key in person obj === name, then add that name to the member count
+      if(key === 'name') {
+        result.members++;
+      } //if key === spouse there is more to do
+      else if(key === 'spouse') {
+        /* person[key] is the value of the spouse prop and if it does not equal null
+            and if  index is -1 (this works with indexOf() method) then they ARE NOT DECEASED
+            */
+        if(person[key] !== null && deceasedSpouses.indexOf(person[key]) === -1) {
+          //if spouse is not deceased add them to member count
+          result.members++;
+        }
+      }
+      //if key is equal to children, then member count is equal to member count + person[key](children array).length
+      //if array is empty, then length is zero but I know that all children props have an array value
+      else if(key === 'children') {
+        result.members = result.members + person[key].length;
+      }
+      //if key is equal to house, then add the house prop into result obj
+      else if(key === 'house') {
+        result.house = person[key];
+      }
+    });
+    //push result into survivors array as it holds the new object and the requested keys and values
+    survivors.push(result);
+  });
   return survivors;
 };
 
