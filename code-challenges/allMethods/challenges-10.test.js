@@ -11,7 +11,6 @@ const createServer = () => {
   const app = express();
 
 
-
   var server = app.listen(3301, function () {
     app.get('/hello', (req, res) => {
       res.send('Hello');
@@ -28,6 +27,7 @@ const createServer = () => {
   });
   return server;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
