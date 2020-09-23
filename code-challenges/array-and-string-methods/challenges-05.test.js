@@ -43,8 +43,8 @@ const templateWithJQuery = () => {
     template.find($('h3').text(person.height));
     template.find($('p').text(person.eye_color));
     $('main').append(template);
-  })
-}
+  });
+};
 
 // through star wars people, then clone template, then find different attr forEach person, assign attribute to each of them, then use dot notation to find each element in template
 /* ------------------------------------------------------------------------------------------------
@@ -131,12 +131,12 @@ const listFoods = (recipe) => {
     indexOfSpace = str.indexOf(' ');
     str = str.slice(indexOfSpace + 1)
 
-  // we slice the same string everytime because of loop and so it will slice until there are no spaces
-  // we then push what is left (only one word) into new array
+    // we slice the same string everytime because of loop and so it will slice until there are no spaces
+    // we then push what is left (only one word) into new array
     result.push(str);
-  }) 
-   return result;
-}
+  });
+  return result;
+};
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -155,9 +155,9 @@ const splitFoods = (recipe) => {
     //we will use join() to turn array into strings
     str = str.join(' ');
     result.push(str);
- })
- return result;
-}
+  });
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -176,8 +176,8 @@ const stepActions = (recipe) => {
     //used split to have an array of every word
     const newArray = step.split(' ');
     //returning the first word of this iteration
-      return newArray[0];
-  })
+    return newArray[0];
+  });
   return extractVerbs;
 };
 
@@ -208,7 +208,7 @@ const removeEvenValues = (arr) => {
     //as long as there is an even number, while loop will run and when they are gone, indexOfEven will become -1 
     //loop stops once -1 is returned as that proves there are no more even numbers to splice
     indexOfEven = arr.findIndex(isEvenNumber);
-  };
+  }
 };
 
 
@@ -228,8 +228,18 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  const emptyString = '';
+  const newString = str.splice(0, numberOfCharacters);
+  if(numberOfCharacters >= str.length) {
+    return emptyString;
+  } else if(numberOfCharacters < 0) {
+    return str;
+  }
+  return newString;
 };
+
+
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -265,7 +275,7 @@ const removeVowels = (str) => {
   }
   //Here I apply the new prototype to the str and return the new string
   return str.removeAllVowels();
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
@@ -280,22 +290,22 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 const extractVowels = (str) => {
   const result = [];
   // removing all vowels from string using Regex expression
-    const newString = str.replace(/[aeiou]+/g, '');
-    //Using another Regex Expression removes everything that isn't a vowel 
-    const allVowels = str.replace(/[^aeiou]+/g, '');
-    //pushed all letters without vowels into empty array
-    result.push(newString);
-    //split every character in string so I could sort it  but this made an array
-    const sortVowels = allVowels.split('');
-    //sorted all vowels in array
-    sortVowels.sort();
-    //created a new var that held all sorted vowels and used join to make the array a string again
-    const finalString = sortVowels.join('');
-    //pushed string with vowels removed and sorted alphabetically into the array that now holds newString(letters without vowels)
-    result.push(finalString);
-    return result;
-}
- 
+  const newString = str.replace(/[aeiou]+/g, '');
+  //Using another Regex Expression removes everything that isn't a vowel
+  const allVowels = str.replace(/[^aeiou]+/g, '');
+  //pushed all letters without vowels into empty array
+  result.push(newString);
+  //split every character in string so I could sort it  but this made an array
+  const sortVowels = allVowels.split('');
+  //sorted all vowels in array
+  sortVowels.sort();
+  //created a new var that held all sorted vowels and used join to make the array a string again
+  const finalString = sortVowels.join('');
+  //pushed string with vowels removed and sorted alphabetically into the array that now holds newString(letters without vowels)
+  result.push(finalString);
+  return result;
+};
+
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
@@ -347,14 +357,14 @@ describe('Testing challenge 5', () => {
   });
 });
 
- describe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
 
- describe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -367,7 +377,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+ describe('Testing challenge 8', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
@@ -390,7 +400,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
- describe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
