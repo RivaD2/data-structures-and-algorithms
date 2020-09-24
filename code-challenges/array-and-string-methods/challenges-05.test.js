@@ -272,7 +272,7 @@ const removeVowels = (str) => {
       -The i flag says to ignore the case of the letters.
       -// 'this' refers to the string and I am saying to replace all the vowels with nothing in this prototype*/
     return this.replace(/[aeiou]+/g, '');
-  }
+  };
   //Here I apply the new prototype to the str and return the new string
   return str.removeAllVowels();
 };
