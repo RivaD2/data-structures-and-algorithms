@@ -11,17 +11,18 @@ const createServer = () => {
   const app = express();
 
 
-  var server = app.listen(3301, function () {
-    app.get('/hello', (req, res) => {
-      res.send('Hello');
-    });
-    app.get('/aboutme', (req, res) => {
-      res.send('My name is Riva and I like cats');
-    });
-    app.get('/favoritefoods', (req, res) => {
-      res.send(['green onion pancakes', 'baba ganoush', 'plantain tacos', 'chorizo tacos']);
-    });
+  app.get('/hello', (req, res) => {
+    res.send('Hello');
+  });
+  app.get('/aboutme', (req, res) => {
+    res.send('My name is Riva and I like cats');
+  });
+  app.get('/favoritefoods', (req, res) => {
+    let arrayOfFoods = ['green onion pancakes', 'baba ganoush', 'plantain tacos', 'chorizo tacos'];
+    res.send(arrayOfFoods);
+  });
 
+  var server = app.listen(3301, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
   });
