@@ -42,7 +42,8 @@ const templateWithJQuery = () => {
     template.find($('h2').text(person.name));
     template.find($('h3').text(person.height));
     template.find($('p').text(person.eye_color));
-    $('main').append(template);
+    template.appendTo('main');
+
   });
 };
 
@@ -228,10 +229,16 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  const newString = str.substring(0, 4);
+  //used substring because it extracts the characters from a string, between two specified indices
+  // starting index would be zero, but substring is counting forward
+  // numOfCharacters is counting backward
+  // I have to substract numOfCharacters from the entire length of string
+  const newString = str.substring(0, str.length-numberOfCharacters);
   if(numberOfCharacters >= str.length) {
-    return str.substring(0, -0);
+    //returned empty string using empty string value;
+    return "";
   } else if(numberOfCharacters < 0) {
+    //returned original string bec numOfCharacters is less than 0;
     return str;
   }
   return newString;
