@@ -135,8 +135,8 @@ const getStatName = (arr, minBaseStat) => {
   //Here i am calling the function from the previous challenge
   //this will give me an array of stat objects
   const arrayOfStats = getBaseStatGreaterThan(arr, minBaseStat);
-  arrayOfStats.map(stat => {
-    return stat.name;
+  return arrayOfStats.map(statObj => {
+    return statObj.stat.name;
   })
 };
 
