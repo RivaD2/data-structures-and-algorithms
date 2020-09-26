@@ -208,7 +208,28 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  //filter will return true or false and if values is not a num, then it is false;
+ const arrayOfNumbers = arr.filter(values => {
+   /*typeof checks what type of primitive a value is and in this case,
+   we want to check to see if all values are numeric. If not, then I have to remove them.*/
+   if(typeof values !== 'number'){
+     /*since filter returns true or false, if a value is non-numeric, then it removes
+     the non-numeric value by returning false*/
+     return false;
+   } else {
+     return true;
+   }
+ })
+
+ const arrayOfStrings = arrayOfNumbers.map(values => {
+   if(values % 2 === 0) {
+     return 'even'
+   }
+   else {
+     return 'odd'
+   }
+ })
+ return arrayOfStrings;
 };
 
 /* ------------------------------------------------------------------------------------------------
