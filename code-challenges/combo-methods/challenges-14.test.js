@@ -224,6 +224,8 @@ const detectTicTacToeWin = (board) => {
   }
   const getSquares = (rowOne, colOne,rowTwo, colTwo, rowThree, colThree ) => {
     //finding first square, second and third
+    /*squareOne, squareTwo and squareThree are coordinates in the array of arrays
+    at the given indices*/
     const squareOne = board[rowOne][colOne];
     const squareTwo = board[rowTwo][colTwo];
     const squareThree = board[rowThree][colThree];
