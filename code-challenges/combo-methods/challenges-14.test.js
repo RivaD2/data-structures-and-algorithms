@@ -41,7 +41,7 @@ const toTitleCase = (arr) => {
   // I will need to get the first letter of the string and make it uppercase
   // Once I have the first letter uppercase I gotta slice the new array at index one as index 0 is the capitalLetter
   // Then I can take string of x and add it to newString (which is the missing piece of the string to be added to capital letter)
-  const upperCaseLetterArray = arr.map(x => { 
+  const upperCaseLetterArray = arr.map(x => {
     const firstLetter = x[0].toUpperCase();
     const newString = x.slice(1);
       return firstLetter + newString;
@@ -219,7 +219,44 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  const threeSameThings = (sq1, sq2, sq3) => {
+    return sq1 === sq2 && sq1 === sq3 && sq1 != '';
+  }
+  const getSquares = (rowOne, colOne,rowTwo, colTwo, rowThree, colThree ) => {
+    //finding first square, second and third
+    const squareOne = board[rowOne][colOne];
+    const squareTwo = board[rowTwo][colTwo];
+    const squareThree = board[rowThree][colThree];
+    //now I have to check to see if squares are the same
+    return threeSameThings(squareOne, squareTwo, squareThree);
+  }
+  /*now that three squares are checked to see if they are the same,
+  I need to know which three squares would result in a win
+  - the winning sqaure will be an array of row and col values*/
+  let arrayOfWinnerSquares = [
+    //checked rows one - three across
+    //coordinates for each row and column
+    [0,0,0,1,0,2],
+    [1,0,1,1,1,2],
+    [2,0,2,1,2,2],
+    //checking columns of col one - three
+    [0,0,1,0,2,0],
+    [0,1,1,1,2,1],
+    [0,2,1,2,2,2],
+    //now i have to check coordinates at diagonals
+    [0,0,1,1,2,2],
+    [0,2,1,1,2,0]
+  ];
+  //above are all the possible winners
+  //squares arg is one of the arrays in arrayofWinnerSquars so it is a set of 6 items
+  const findMatch = arrayOfWinnerSquares.find(squares => {
+    /*used spread operator to get args out of array since getSquares does not accept array
+    but accepts 6 different args*/
+    return getSquares(...squares);
+  });
+  //find() will return array element that matches criteria given
+  //if findMatch is undefined, the return will be false, if findMatch is defined (arr in arr) then true
+    return findMatch != undefined;
 };
 
 /* ------------------------------------------------------------------------------------------------
