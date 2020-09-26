@@ -190,7 +190,13 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  //returning arr.filter is the same as return an assigned const
+  /*looped through array and returned true for people I want to keep.
+  In this case, we want all characters who's prop of children is undefined,
+  meaning, there is no children prop and so they have no children*/
+  return arr.filter(characters => {
+    return characters.children === undefined;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
