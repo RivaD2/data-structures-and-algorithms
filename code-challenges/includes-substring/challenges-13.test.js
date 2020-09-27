@@ -236,7 +236,25 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  /* using map() as it loops over an array and will return an array
+    - map() in this case will take two args, str, and then index as an index
+    has to be specified for substring and also, I want to remove letters at a
+    given index
+    - substring() takes in the index which is where I want to start the substring
+    -  substring() returns a part of the given string from start index to end index.
+    - index is the num of the iteration from the map
+    - the first item has index one, the second index two, etc.
+    */
+  const splitStringsAtIndexes = arr.map((str, index) => {
+    /*want to take the string and return given string and return
+      from the index to one character after the index
+      - first iteration, I cut letter from 0-1,
+        second iteration, i cut letter 1-2,
+        third iteration, I cut letter 2-3*/
+    return str.substring(index, index + 1);
+  })
+
+  return splitStringsAtIndexes
 };
 
 /* ------------------------------------------------------------------------------------------------
