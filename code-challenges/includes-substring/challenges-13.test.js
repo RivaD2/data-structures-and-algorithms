@@ -170,7 +170,34 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  /* created a function called filterBrooks
+    - this function takes in one arg of roster bec I know that I have a multidimensional
+    array with multiple rosters
+    - instead of assigning filter() to const, just returned the result from
+    the filter directly. Filter looped through the first roster and returned
+    true because I said If the roster includes 'Brook' then it is not true;
+    - if the value is not true, filter WILL NOT KEEP THE VALUE
+    */
+
+  const filterBrooks = (roster) => {
+    return roster.filter(name => {
+      return name.includes('Brook') !== true;
+    })
+  }
+  /* So, I filtered the first roster, but I still have another roster to cycle
+  through and remove all "brooks". Since I created a function 'filterBrooks' I can
+  use that here.
+    - Map will loop through one array and return a new one based off certain criteria
+    - I mapped over the original arr given as i had to return a two-dimensional array
+    with the same roster.
+    - then I called the filterBrooks function and passed in each item of the array to
+    filterBrooks function and it checked to see which values were NOT TRUE.
+    - any values that were not true mean that they were brooks and so they
+    will not be in the array
+    */
+  return arr.map(roster => {
+    return filterBrooks(roster)
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
