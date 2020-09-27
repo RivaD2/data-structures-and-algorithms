@@ -93,7 +93,26 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  /*used reduce as it turns array into a single value
+    - in this case that value is true or false (a boolean)
+    - used includes() to see if curr item DID NOT include the  :)
+    - This is easier to check rather than checking to see if all items had :)
+    - if the curr item didn't include the :), then return false
+    - HOWEVER, once the acc is set to false, I don't want it to set it true again
+    - IN other words, once we don't have a smiley, it will NEVER return true
+    - returning result of ternary (if left side of ? is true, then it will return
+      middle value of true. If left side is false, it will return right-side value of false.)
+    */
+
+  const searchStrings = arr.reduce((acc, curr) => {
+    if(curr.includes(':)') !== true) {
+      return false;
+    } else {
+      return acc === true ? true : false;
+    }
+    //set initial value to boolean
+  },true);
+  return searchStrings;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,7 +122,13 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+ const findTargetString = arr.reduce((acc, curr) => {
+   if(curr === target) {
+     acc.push(target);
+   }
+   return acc;
+ },[])
+  return findTargetString;
 };
 
 /* ------------------------------------------------------------------------------------------------
