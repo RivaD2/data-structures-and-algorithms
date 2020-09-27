@@ -142,8 +142,20 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  /* This challenge was the same as challenge 6.
+    - Here I just checked to see if every string DIDN'T contain the target string
+    */
+  const doesEveryContainTargetString = arr.reduce((acc, curr) => {
+    if(curr.includes(target) !== true) {
+      return false;
+    } else {
+      return acc === true ? true : false;
+    }
+    //set initial value to boolean
+  },true);
+  return doesEveryContainTargetString;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
