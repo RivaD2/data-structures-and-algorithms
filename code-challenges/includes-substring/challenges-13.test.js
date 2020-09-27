@@ -122,14 +122,18 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
- const findTargetString = arr.reduce((acc, curr) => {
-   if(curr === target) {
-     acc.push(target);
-   }
-   return acc;
- },[])
-  return findTargetString;
-};
+  /*filter returns an array
+    - looping through array looking for strings that include the target string
+    - callback function returns boolean
+    -if true is returned, then filter will keep the current item in the array
+    - I needed to items that included the target and includes returns true if string
+    includes the target
+    */
+ return arr.filter(str => {
+   //includes() will return true if string includes the target
+    return str.includes(target);
+  });
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
