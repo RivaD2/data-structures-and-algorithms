@@ -205,7 +205,8 @@ CHALLENGE 10 - Stretch Goal
 
 Write a function named sortByDay that takes in an array of strings, each of which represents an event's day and time.
 
-Return a two-dimensional array that organizes those strings based on the day on which they occur. For example, all events on Monday are in the first array, all events on Tuesday are in the second array, etc.
+Return a two-dimensional array that organizes those strings based on the day on which they occur. For example, 
+all events on Monday are in the first array, all events on Tuesday are in the second array, etc.
 
 If an event takes place on multiple days (i.e. "Dancing on Mondays and Tuesdays"), it should appear in both arrays.
 
@@ -224,8 +225,24 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (arr) => {
-  // Solution code here...
-};
+  /*created a function that will filter out the day of the week
+    -I am going through the array once for each day*/
+  const filterStringArray = (day) => {
+    return arr.filter(eventString => {
+    /*include will return true or false and if the event matches the day, 
+      then it will return true and event  will be added to filterString Array*/
+     return eventString.includes(day);
+    })
+  }
+  /*If an event takes place on multiple days, then map will match it on each iteration
+      -i.e. first I go through Monday, filter  all 'Mondays', go through Tuesday and filter all 'Tuesdays etc.
+      - So if an event takes place on a Monday and Tues, it will be found and put in appropriate array as I am filtering by day
+      - return the function and pass in the day as an arg, and it will return all events filtered out for that day
+      */
+  return daysOfWeek.map(day => {
+    return filterStringArray(day);
+  })
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
