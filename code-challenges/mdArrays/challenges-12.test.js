@@ -60,13 +60,16 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  const newArray = [];
-  const obj = hours + data;
-  for (const [key, value] of Object.entries(obj)) {
-    newArray.push(obj);
-  }
-
-  return newArray;
+  let newArray = [];
+  hours.forEach(hour => {
+    let object = {
+      sales: totals,
+      time: 'hour'
+    };
+  return newArray.push(obj.data);
+    
+  })
+  
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +94,31 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  // Had to create a variable so I can assign a value to it in the forEach
+  let arrayOfPetItems;
+  /*looping through the array of errands, but errands is an array of object
+  with props of store and items
+  - I needed to first isolate the Petstore object and only get those items needed*/
+  arr.forEach(errand=> {
+    if(errand.store === 'Pet store') {
+      arrayOfPetItems = errand.items;
+    }
+  });
+/*now that I have the items needed from the  Petstore obj, 
+I needed to created a var where I can store the quantity 
+of treats */
+  let treatQuantity = 0;
+  /*looped through array of items in petStore object and I'm looking 
+   for only the item with the name of 'Treats'
+   - Once I have the 'Treats' item, the treatQuanity var is now set
+   to  item.quantity of that treats item*/
+  arrayOfPetItems.forEach(petListItem => {
+    if(petListItem.name === 'Treats') {
+        treatQuantity = petListItem.quantity;
+    }
+  })
+  //returned treatQuanity value
+  return treatQuantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -238,7 +265,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
