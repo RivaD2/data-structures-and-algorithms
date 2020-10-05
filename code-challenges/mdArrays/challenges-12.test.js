@@ -60,16 +60,25 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  let newArray = [];
-  hours.forEach(hour => {
-    let object = {
-      sales: totals,
-      time: 'hour'
+  /*
+  - created a new array to hold formatted sales data
+  - ran through every hour and created new object
+  - added string of ' cookies' to value of sales since test wanted string added
+  - set sales value to data 
+  - data is an array of sales totals which is the same length of hours array
+  - setting the index of data says that the hours array matches sales array length
+  - since the arrays are the same length, I can loop through one array and get 
+      cooresponding value from other array
+    */
+   let newArray = [ ];
+  hours.forEach((hour, index) => {
+    let newObject = {
+      sales: data[index] + ' cookies',
+      time: hour
     };
-  return newArray.push(obj.data);
-    
-  })
-  
+    newArray.push(newObject);
+  }) 
+  return newArray;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,7 +108,7 @@ const howManyTreats = (arr) => {
   /*looping through the array of errands, but errands is an array of object
   with props of store and items
   - I needed to first isolate the Petstore object and only get those items needed*/
-  arr.forEach(errand=> {
+  arr.forEach(errand => {
     if(errand.store === 'Pet store') {
       arrayOfPetItems = errand.items;
     }
