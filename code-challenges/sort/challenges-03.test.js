@@ -18,7 +18,7 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const changeAllClassNames = () => {
-  $('li').addClass('fruit')// Solution code here...
+  $('li').addClass('fruit')
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ CHALLENGE 2
 Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, highest to smallest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortBackwards = (arr) => {
+const sortBackwards = arr => {
 
   function compare(a,b) {
     if(a < b) {
@@ -37,9 +37,9 @@ const sortBackwards = (arr) => {
     }else {
       return 0;
    }
-}
-arr.sort(compare);
-return arr;
+  }
+  arr.sort(compare);
+  return arr;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -51,7 +51,7 @@ In this alphabetization, capital letters come before lower case letters.
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
-const alphabetize = (arr) => {
+const alphabetize = arr => {
   function compare(a,b) {
     if(a > b) {
       return 1;
@@ -70,7 +70,7 @@ CHALLENGE 4
 Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByLength = (arr) => {
+const sortByLength = arr => {
   function compare(a,b) {
     if(a.length < b.length) {
       return -1;
@@ -94,14 +94,10 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   function compare(a,b) {
-    if(a.toLowerCase() > b.toLowerCase()) {
-      return -1;
-    } else if(b.toLowerCase() < a.toLowerCase()) {
-      return 1;
-    } else {
-      return 0;
+    if(a.toLowerCase() < b.toLowerCase()) return -1;
+    if(a.toLowerCase() > b.toLowerCase()) return 1;
+    return 0;
    }
-  }
   arr.sort(compare);
   return arr;
 };
@@ -118,7 +114,7 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const sortByPrice = (arr) => {
+const sortByPrice = arr => {
   arr.sort(compare);
   function compare(a,b) {
     if (a > b) return 1;
@@ -126,8 +122,10 @@ const sortByPrice = (arr) => {
   
     return 0;
   }
+  return arr;
 };
-return arr;
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
@@ -136,8 +134,10 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => {
-  // Solution code here...
+const sortNumbersByLength = arr => {
+  //sort method compares items as strings
+  //In this case, my array is an array of nums, so I need to sort length of actual nums
+  arr.sort((a, b) => a - b);
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -297,7 +297,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should alphabetize without regard to capitalization', () => {
     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
@@ -306,7 +306,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       {name: 'Sweatshirt', price: 45},
@@ -322,7 +322,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should sort numbers by their length', () => {
     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
@@ -330,7 +330,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
@@ -342,7 +342,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
@@ -363,7 +363,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0,2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
@@ -373,7 +373,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
@@ -386,7 +386,7 @@ xdescribe('Testing challenge 11', () => {
   });
 });
 
-xdescribe('Testing challenge 12', () => {
+describe('Testing challenge 12', () => {
   test('It should add a class of pear to the thrid li', () => {
     addPearClass();
     expect($('li:nth-child(3)').hasClass('pear')).toBe(true);
