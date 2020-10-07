@@ -93,6 +93,8 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
+  /*arr. sort will always put capital letters first. I need to tell
+  the sort function otherwise*/
   function compare(a,b) {
     if(a.toLowerCase() < b.toLowerCase()) return -1;
     if(a.toLowerCase() > b.toLowerCase()) return 1;
@@ -117,9 +119,8 @@ Here is an example of the input:
 const sortByPrice = arr => {
   arr.sort(compare);
   function compare(a,b) {
-    if (a > b) return 1;
-    if (b > a) return -1;
-  
+    if (a.price > b.price) return 1;
+    if (b.price > a.price) return -1;
     return 0;
   }
   return arr;
