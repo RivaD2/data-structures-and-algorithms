@@ -136,10 +136,20 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = arr => {
-  //sort method compares items as strings
-  //In this case, my array is an array of nums, so I need to sort length of actual nums
-  arr.sort((a, b) => a - b);
-};
+
+  //sort method compares items as strings and by first indices
+  //In this case, my array is an array of nums, so I need to sort length of actual length of nums
+ // To sort correctly, I have to pass a compare function to sort()
+  arr.sort(
+  //this function compares two values at a time
+  function compareNums(a, b) {
+    return a - b;
+  })
+
+  }
+
+
+
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -161,20 +171,23 @@ const people = [
 
 const sortPeople = (arr) => {
   function compare(a,b) {
-    
+    //used compare function to compare two values at a time
+    //used .toUpperCase to ignore capital letters
     const person1 = a.lastName.toUpperCase();
     const person2 = b.lastName.toUpperCase();
   
-    let comparison = 0;
+    let comparison = 0; //set comparison to 0 if a is equal to b
     if (person1 > person2) {
+      //first person should be sorted after the second
       comparison = 1;
     } else if (person1 < person2) {
+      //says first person should be sorted before second
       comparison = -1;
     }
     return comparison;
   }
   
-  arr.sort(compare);
+  return arr.sort(compare);
 };
 
 /* ------------------------------------------------------------------------------------------------
