@@ -8,11 +8,11 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 
 ------------------------------------------------------------------------------------------------ */
 
-const raisedToTheThird = (arr) => {
+const raisedToTheThird = arr => {
 let newNumsArray = [];
   arr.forEach(values =>  {
-newNumsArray.push(Math.pow(values, 3));
-});
+  newNumsArray.push(Math.pow(values, 3));
+  });
 return newNumsArray;
 };
 
@@ -24,7 +24,7 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 ------------------------------------------------------------------------------------------------ */
 
-const appendTheEnd = (str) => {
+const appendTheEnd = str => {
   let newString = '';
   const stringConcat = ' The end.';
   return str.concat(stringConcat);
@@ -43,7 +43,7 @@ appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
-const appendFirstToLast = (arr) => {
+const appendFirstToLast = arr => {
   const element = arr[0];
   arr.push(element);
 };
@@ -152,7 +152,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should add a property to every object in an array', () => {
     const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
     setStatusAsAuthor(a);
@@ -163,7 +163,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should append the second array to the first', () => {
     const a = [1, 2, 3, 4];
     const b = [5, 6, 7, 8];
