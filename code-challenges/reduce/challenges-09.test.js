@@ -444,7 +444,21 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  /* - use reduce to loop through the arr of objects that will possibly have a name property
+    - The name property will be on the stat object
+    - If the current item's name prop matches the string value of statName, then return the curr object.
+    - If the current object's name property doesn't match the statName, then return acc because acc is
+      null by default due to initial value
+   */
+ return arr.reduce((acc, curr) => {
+   if(curr.stat.name === statName){
+     return curr;
+   } else {
+     return acc;
+   }
+   //the initial value is null because if none of the names match, we want to return null
+   //if the acc is empty, then return null
+ }, null)
 };
 
 /* ------------------------------------------------------------------------------------------------
