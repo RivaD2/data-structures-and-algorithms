@@ -260,24 +260,40 @@ Write a function named sortMeetingsByDay that takes in an array of objects, each
 Sort the meetings by the day on which they happen, Monday-Friday. It does not matter which order meetings come in on a particular day. For example, if there are two meetings on Monday, it does not matter which comes first.
 ------------------------------------------------------------------------------------------------ */
 
-// function Meeting(dayOfWeek, start, end) {
-//   this.dayOfWeek = dayOfWeek;
-//   this.start = start;
-//   this.end = end;
-// }
-// const meetings = [
-//   new Meeting('Monday', '0900', '1000'),
-//   new Meeting('Wednesday', '1300', '1500'),
-//   new Meeting('Tuesday', '1145', '1315'),
-//   new Meeting('Wednesday', '0930', '1000'),
-//   new Meeting('Monday', '0900', '0945'),
-//   new Meeting('Friday', '1200', '1345'),
-// ];
+function Meeting(dayOfWeek, start, end) {
+  this.dayOfWeek = dayOfWeek;
+  this.start = start;
+  this.end = end;
+}
+const meetings = [
+  new Meeting('Monday', '0900', '1000'),
+  new Meeting('Wednesday', '1300', '1500'),
+  new Meeting('Tuesday', '1145', '1315'),
+  new Meeting('Wednesday', '0930', '1000'),
+  new Meeting('Monday', '0900', '0945'),
+  new Meeting('Friday', '1200', '1345'),
+];
 
-// const sortMeetingsByDay = (arr) => {
+const sortMeetingsByDay = (arr) => {
+  //sort in this case will automatically sort alphabetically since it has an array of strings
+  //I want to sorty by day of the week so first I need to define days of the week in a new array
+  //Once I have defined the order of the days of the week, I can sort by indices (as monday will always be an index 0, tues at index 1 etc.)
 
+  let daysOfWeekOrder= ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
-// }
+ arr.sort((a, b ) => {
+   const indexOfDay1 = daysOfWeekOrder.indexOf(a.dayOfWeek);
+   const indexOfDay2 = daysOfWeekOrder.indexOf(b.dayOfWeek);
+   //if [0] is greater than [3], it goes after index, then value at indexOfDay2 comes first (0 is not greater so it comes first in order.)
+    if(indexOfDay1 > indexOfDay2) {
+      return 1;
+    } else if(indexOfDay1 < indexOfDay2) {
+      return -1
+    }
+    return 0;
+  })
+  return arr;
+}
 
 
 
