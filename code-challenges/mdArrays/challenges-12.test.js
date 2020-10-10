@@ -212,7 +212,18 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  //to find average, I need to iterate through and find average of ONE array
+  function findAverage (array) {
+    return array.reduce((acc, curr) => {
+      return curr + acc;
+    }, 0)/ array.length;
+  }
+  //Now I need to flatten the weather array so that I can get ONE AVERAGE from ONE ARRAY, flat() will turn the arrays into a single array
+  // Once I flatten array, I need to  calculate the average by calling findAverage() and passing it the flattenedWeatherArray;
+  // I had to assign the function call to a const and then returned the const holding the average
+  const flattenedWeatherArray = weather.flat();
+   const result = findAverage(flattenedWeatherArray);
+   return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
