@@ -146,7 +146,7 @@ const sortNumbersByLength = arr => {
         */
 
 
- arr.sort(function(a, b){
+ arr.sort((a, b) => {
   if (a.toString().length > b.toString().length)
       return 1;
   if (b.toString().length > a.toString().length)
@@ -177,7 +177,7 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  function compare(a,b) {
+  const comparePeople = arr.sort((a,b) => {
     //used compare function to compare two values at a time
     //used .toUpperCase to ignore capital letters
     const person1 = a.lastName.toUpperCase();
@@ -192,9 +192,8 @@ const sortPeople = (arr) => {
       comparison = -1;
     }
     return comparison;
-  }
-  
-  return arr.sort(compare);
+  })
+  return comparePeople;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -207,15 +206,50 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-// const sortPeopleBetter = (arr) => {
-//   // sort array of person objects by lastName
-//   arr.sort(function(a, b) {
+const sortPeopleBetter = (arr) => {
+  /* sort array of person objects by lastName which a property of an Person object
+    - To do this, I have to use a compare function and first sort people by their lastName prop.*/
 
-//   const lastName1 = a.lastName.toLowerCase();
-//   const lastName2 = b.lastName.toLowerCase();
+  arr.sort((a, b) => {
 
-// }
+    const lastName1 = a.lastName.toLowerCase();
+    const lastName2 = b.lastName.toLowerCase();
+    if( lastName1 > lastName2 ) {
+      return 1;
+    } else if( lastName1 < lastName2 ){
+      return -1;
+    }
 
+  /*The first sort sorts People by prop of lastName
+    - Because I haven't defined firstName of person a and b, I have to define and assign to const
+    - Once firstName of person1 and person2 is defined, I can sort based of firstName*/
+
+    const firstName1 = a.firstName.toLowerCase();
+    const firstName2 = b.firstName.toLowerCase();
+    if(firstName1 > firstName2 ) {
+      return 1;
+    } else if(firstName1 < firstName2 ){
+      return -1;
+    }
+
+  /*If I get here, then I know that the lastName and firstName are the same(same fullName);
+    - However, if two people share the same fullname, then the younger person has to come first
+    - I am still inside the sort function and so now have to define person1 and person2 based off their age properties
+  - Once I have defined person1 and person2 I can then sort based off age property*/
+
+    const agePerson1 = a.age;
+    const agePerson2 = b.age;
+    if(agePerson1 > agePerson2 ){
+      return 1;
+    } else if(agePerson1 < agePerson2 ){
+      return -1;
+    }
+    return 0;
+
+    });
+    //sort modifies the array in place and won't return anything automaically so I have the modified array
+    return arr;
+  }
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -226,24 +260,24 @@ Write a function named sortMeetingsByDay that takes in an array of objects, each
 Sort the meetings by the day on which they happen, Monday-Friday. It does not matter which order meetings come in on a particular day. For example, if there are two meetings on Monday, it does not matter which comes first.
 ------------------------------------------------------------------------------------------------ */
 
-function Meeting(dayOfWeek, start, end) {
-  this.dayOfWeek = dayOfWeek;
-  this.start = start;
-  this.end = end;
-}
-const meetings = [
-  new Meeting('Monday', '0900', '1000'),
-  new Meeting('Wednesday', '1300', '1500'),
-  new Meeting('Tuesday', '1145', '1315'),
-  new Meeting('Wednesday', '0930', '1000'),
-  new Meeting('Monday', '0900', '0945'),
-  new Meeting('Friday', '1200', '1345'),
-];
+// function Meeting(dayOfWeek, start, end) {
+//   this.dayOfWeek = dayOfWeek;
+//   this.start = start;
+//   this.end = end;
+// }
+// const meetings = [
+//   new Meeting('Monday', '0900', '1000'),
+//   new Meeting('Wednesday', '1300', '1500'),
+//   new Meeting('Tuesday', '1145', '1315'),
+//   new Meeting('Wednesday', '0930', '1000'),
+//   new Meeting('Monday', '0900', '0945'),
+//   new Meeting('Friday', '1200', '1345'),
+// ];
 
-const sortMeetingsByDay = (arr) => {
+// const sortMeetingsByDay = (arr) => {
 
 
-}
+// }
 
 
 
