@@ -472,8 +472,30 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
-};
+  //First I need to use filter() to get all characters that have an a in their name
+  // Filter will make a smaller array and often returns true or false depending on given criteria
+  // In this case, filter will run through all characters and return those that have an a (using the includes() method);
+const charactersWithLetterA = arr.filter(characters => {
+    return characters.name.includes('a');
+  })
+
+  /*Now that I have all characters containing a's in their name, I have to use reduce() to get all childrens names
+   - reduce will have two params, one of which is the current item being iterated over and the return value
+   - I have to use if statement to say, if curr item has curr.children, then add the children to the
+   return value that I carry with me through each iteration(the acc).
+   - Use spread operator to add two arrays together
+   - then else says that if curr item doesn't have a children prop, then just return what we have already(the acc);
+   */
+  return charactersWithLetterA.reduce((acc, curr) => {
+    if(curr.children){
+      return [...acc, ...curr.children];
+    } else {
+      return acc;
+    }
+  },[]);
+}
+
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
