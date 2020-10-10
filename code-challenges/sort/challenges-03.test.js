@@ -373,7 +373,7 @@ $ = createSnippetWithJQuery(`
 `);
 
 const addPearClass = () => {
-  $("#fruits:nth-of-type(2)").addClass("pear");
+  $("li").eq(2).addClass("pear");
 };
 
 /* ------------------------------------------------------------------------------------------------
