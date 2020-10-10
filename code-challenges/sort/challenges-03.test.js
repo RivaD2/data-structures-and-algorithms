@@ -279,7 +279,7 @@ const sortMeetingsByDay = (arr) => {
   //I want to sorty by day of the week so first I need to define days of the week in a new array
   //Once I have defined the order of the days of the week, I can sort by indices (as monday will always be an index 0, tues at index 1 etc.)
 
-  let daysOfWeekOrder= ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+let daysOfWeekOrder= ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
  arr.sort((a, b ) => {
    const indexOfDay1 = daysOfWeekOrder.indexOf(a.dayOfWeek);
@@ -297,8 +297,6 @@ const sortMeetingsByDay = (arr) => {
 
 
 
-
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
 
@@ -308,10 +306,58 @@ Sort the meetings in the order that they start. If two meetings start at the sam
 
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
+/*const meetings = [
+  new Meeting('Monday', '0900', '1000'),
+  new Meeting('Wednesday', '1300', '1500'),
+  new Meeting('Tuesday', '1145', '1315'),
+  new Meeting('Wednesday', '0930', '1000'),
+  new Meeting('Monday', '0900', '0945'),
+  new Meeting('Friday', '1200', '1345'),
+];
+*/
+
+/* First: I have to sort meetings by day again, as I can't call the function used previously because that will sort meetings just by day!
+- Second: Time is a string value so I will turn strings into integers first using parseInt
+- Third: Once I have strings to integers, I need to sort start times based on their length (this should put them in correct order);
+- Fourth: Sort based on end times to make sure that shorter meetings go first*/
 
 const sortSchedule = (arr) => {
-  // Solution code here...
-};
+
+let daysOfWeekOrder= ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+ arr.sort((a, b ) => {
+   const indexOfDay1 = daysOfWeekOrder.indexOf(a.dayOfWeek);
+   const indexOfDay2 = daysOfWeekOrder.indexOf(b.dayOfWeek);
+   //using code from previous to challenge to sort meetings by day.
+    if(indexOfDay1 > indexOfDay2) {
+      return 1;
+    } else if(indexOfDay1 < indexOfDay2) {
+      return -1
+    }
+
+//Now that meetings are sorted by day, I have to sort meetings  by their start times
+    const startTime1 = parseInt(a.start);
+    const startTime2 = parseInt(b.start);
+
+     if(startTime1 > startTime2) {
+       return 1;
+     } else if(startTime1 < startTime2) {
+       return -1
+     }
+
+// If two meetings start at same time, I now have to sort by end time so that the shorter meetings come first
+     const endTime1 = parseInt(a.end);
+     const endTime2 = parseInt(b.end);
+     if(endTime1 > endTime2) {
+      return 1;
+    } else if(endTime1 < endTime2) {
+      return -1
+    } return 0;
+  })
+   return arr;
+ }
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 12 - Stretch Goal
@@ -327,7 +373,7 @@ $ = createSnippetWithJQuery(`
 `);
 
 const addPearClass = () => {
-  // Solution code here...
+  $("#fruits:nth-of-type(2)").addClass("pear");
 };
 
 /* ------------------------------------------------------------------------------------------------
