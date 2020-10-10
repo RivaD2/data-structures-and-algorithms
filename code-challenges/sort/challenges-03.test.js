@@ -137,17 +137,24 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = arr => {
 
-  //sort method compares items as strings and by first indices
-  //In this case, my array is an array of nums, so I need to sort length of actual length of nums
- // To sort correctly, I have to pass a compare function to sort()
-  arr.sort(
-  //this function compares two values at a time
-  function compareNums(a, b) {
-    return a - b;
-  })
+  /*sort method compares items based on type
+  - In this case, my array is an array of nums, so I need to sort by length, not just by value
+  - To sort correctly, I have to pass a compare function to sort()
+  - The compare function needs to sort using basic functionality but it also needs to do other things:
+        - It needs to turn integers into strings, so I can sort by length (can't sort length on integers)
+        - It needs to sort by length by using .length string method
+        */
 
-  }
 
+ arr.sort(function(a, b){
+  if (a.toString().length > b.toString().length)
+      return 1;
+  if (b.toString().length > a.toString().length)
+      return -1;
+  return 0;
+});
+ return arr;
+}
 
 
 
@@ -166,7 +173,7 @@ function Person(firstName, lastName, age) {
 const people = [
   new Person('Wes', 'Washington', 25),
   new Person('Casey', 'Codefellow', 38),
-  new Person('Stan', 'Seattle', 67),
+  new Person('Stan', 'Seattle', 67)
 ];
 
 const sortPeople = (arr) => {
@@ -200,9 +207,16 @@ If two people share the same last name, alphabetize on their first name.
 If two people have the same full name, the younger one should come first. Do not worry about capitalization.
 ------------------------------------------------------------------------------------------------ */
 
-const sortPeopleBetter = (arr) => {
-  // Solution code here...
-};
+// const sortPeopleBetter = (arr) => {
+//   // sort array of person objects by lastName
+//   arr.sort(function(a, b) {
+
+//   const lastName1 = a.lastName.toLowerCase();
+//   const lastName2 = b.lastName.toLowerCase();
+
+// }
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -227,8 +241,13 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
-};
+
+
+}
+
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
