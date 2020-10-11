@@ -38,16 +38,21 @@ let $ = createSnippetWithJQuery(`
 
 const templateWithJQuery = () => {
   starWarsPeople.forEach(person => {
+    //for each person, I clone a template
     const template = $('#template').clone();
-    template.find($('h2').text(person.name));
-    template.find($('h3').text(person.height));
-    template.find($('p').text(person.eye_color));
+    /*change the id for each template clone because if they all have same id, jQuery to get template will
+    return all DOM elements with matching id*/
+    template.attr('id', person.name);
+    // filling text values of elements with  props that each person obj has
+    template.find('h2').text(person.name);
+    template.find('h3').text(person.height);
+    template.find('p').text(person.eye_color);
+    //take the template and append to the DOM
     template.appendTo('main');
-
   });
 };
 
-// through star wars people, then clone template, then find different attr forEach person, assign attribute to each of them, then use dot notation to find each element in template
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -62,8 +67,11 @@ For example, if the input is 'Welcome', the output will be:
 ------------------------------------------------------------------------------------------------ */
 
 const howMuchPencil = (str) => {
+  // I need to return an array of each string result
   let result = [];
-  for(let i = 0; i < str.length + 1;i ++) {
+  // will run through the loop for the length the string plus 1
+  for(let i = 0; i < str.length + 1; i ++) {
+    //everytime the loop runs, the string is shortened by one num and the value of string is pushed into result
     result.push(str.slice(i));
   }
   return result;
@@ -78,6 +86,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
+  // used split to divide the strings into ordered list of substrings
+  // split turns a string into an array by default
   return arr.split('');
 };
 
@@ -152,7 +162,7 @@ const splitFoods = (recipe) => {
   let result = [];
   recipe.ingredients.forEach (str => {
     str = str.split(' '); // I will have array of all words
-    str = str.slice(2);  // now we need to turn array back into string 
+    str = str.slice(2);  // now I need to turn array back into string
     //we will use join() to turn array into strings
     str = str.join(' ');
     result.push(str);

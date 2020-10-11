@@ -62,7 +62,7 @@ const validateEmail = (email) => {
     console.log(email, 'is ', false);
     return false;
 };
-
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -166,7 +166,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-describe('Testing challenge 4', () => {
+xdescribe('Testing challenge 4', () => {
   test('It should match the acceptable phone number formats', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
