@@ -289,7 +289,32 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+ /*
+ - Split will make new array from a string and I need to return an array with the sum of each row
+ - I need to split each row and each row is represented by '\n'
+ - If I split each row, I will end up with each column as a substring ("1,1,1,", "2, 2, 2" etc. is what I will have)
+ - So I will need to split again at each column (marked as ',')
+ - I will then have something like this [[1, 1, 1 ], [2, 2, 2 ] ]; (an array of arrays);
+ - Use reduce to add up inner arrays and map to turn arrays of arrays into array of sums
+ */
+
+//split will turn the string into an array of strings
+const splitRows = str.split('\n');
+
+//Array of strings will be turned into array of arrays and I need to split the row into columns
+//Split columns will be my outer array
+const splitColumns = splitRows.map(row => {
+  return row.split(',');
+})
+//need to use map again to run through outer array of splitColumns
+return splitColumns.map(innerArray => {
+  return innerArray.reduce((acc, curr) => {
+    //the acc is already an integer but the current is an an array of strings, I need to make it an integer
+    return acc + parseInt(curr);
+  }, 0);
+
+  })
+
 };
 
 /* ------------------------------------------------------------------------------------------------
