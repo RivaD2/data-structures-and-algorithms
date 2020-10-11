@@ -242,9 +242,35 @@ let lowestWeeklyTemperatureData = [
   [55, 54, 60, 53, 59, 57, 61],
   [65, 56, 55, 52, 55, 62, 57],
 ];
+/*
+- This challenge will look simlar to the previous challenge
+- I need to first create a function that finds the average temp of ONE array
+- Once I have the average temp, I need find the average of every given week.
+*/
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  function findAverageLoTemp (array) {
+    return array.reduce((acc, curr) => {
+      return curr + acc;
+    }, 0)/ array.length;
+  }
+
+  /*
+  - Now that I can find average temp of one week, I need to iterate over each week and findAverageLoTemp using the function I created.
+  - I used map so I can creates a new array of the same length but with modified data
+  - Inside I the map function, I assign the findAverageLoTemp function(with callback passed in) to a const
+  */
+const result = weather.map(week => {
+  // result is an array of average temps per week
+  return findAverageLoTemp(week);
+})
+/*
+ - Now that I have average temps per week, I then have to sort the average temps for each week.
+- Sort will by default sort in ascending order, so now that temps are sorted, I know that the first one will be the lowest.
+- The lowest temp will be at index 0 in sorted array of lowest average temps
+*/
+result.sort();
+return result[0];
 };
 
 /* ------------------------------------------------------------------------------------------------
