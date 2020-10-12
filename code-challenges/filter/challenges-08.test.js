@@ -13,7 +13,7 @@ const createServer = () => {
   const app=express();
   app.get('/hello', sayHello);
 
-  var server = app.listen(3301, function () {
+  var server = app.listen(3301, () => {
     var port = server.address().port;
     console.log('Example app listening at port', port);
   });
@@ -21,8 +21,8 @@ const createServer = () => {
 };
 
 
-function sayHello(request, response){
-  response.send('Hello from the back-end');
+const sayHello = (req, res) => {
+  res.send('Hello from the back-end');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-    return arr.filter(n => n%2);
+    return arr.filter(n => n % 2);
   };
 
 
@@ -189,7 +189,7 @@ const characters = [
   },
 ];
 
-const getCharactersWithoutChildren = (arr) => {
+const getCharactersWithoutChildren = arr => {
   //returning arr.filter is the same as return an assigned const
   /*looped through array and returned true for people I want to keep.
   In this case, we want all characters who's prop of children is undefined,
@@ -207,27 +207,22 @@ Write a function named evenOddNumericValues that, given an array as input, uses 
 For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 'odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const evenOddNumericValues = (arr) => {
+const evenOddNumericValues = arr => {
   //filter will return true or false and if values is not a num, then it is false;
  const arrayOfNumbers = arr.filter(values => {
    /*typeof checks what type of primitive a value is and in this case,
    we want to check to see if all values are numeric. If not, then I have to remove them.*/
-   if(typeof values !== 'number'){
+   return typeof values === 'number'
      /*since filter returns true or false, if a value is non-numeric, then it removes
      the non-numeric value by returning false*/
-     return false;
-   } else {
-     return true;
-   }
  })
 
  const arrayOfStrings = arrayOfNumbers.map(values => {
    if(values % 2 === 0) {
      return 'even'
    }
-   else {
-     return 'odd'
-   }
+   return 'odd'
+
  })
  return arrayOfStrings;
 };
