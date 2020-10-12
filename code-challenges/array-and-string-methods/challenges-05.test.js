@@ -136,14 +136,20 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   recipe.ingredients.forEach (str => {
-    // indexOfSpace finds first space in string
-    let indexOfSpace = str.indexOf(' '); 
-    str = str.slice(indexOfSpace + 1); // we find the index and slice it to remove indexes before the space
+    // indexOfSpace finds first space in string and give me the index where the space is
+    let indexOfSpace = str.indexOf(' ');
+    /*we found the index of the first space and now I need to remove everything
+    before the first space and the space itself*/
+    str = str.slice(indexOfSpace + 1);
+    /* Now I reassign the value of indexofSpace to be the NEXT index of the
+    second location of the next empy space in string*/
     indexOfSpace = str.indexOf(' ');
+    /*Found the next index where the next space is and I need to slice everything
+    before this index and the space itself*/
     str = str.slice(indexOfSpace + 1)
 
-    // we slice the same string everytime because of loop and so it will slice until there are no spaces
-    // we then push what is left (only one word) into new array
+    // we slice the same string twice because of loop and so it will slice until there are no spaces
+    //push result into result array
     result.push(str);
   });
   return result;
