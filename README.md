@@ -23,3 +23,23 @@
 
 ### TOOLS USED:
 - node.js
+
+
+---------------------------------------------------------
+# 401 Data Structure and Algorithms Challenges:
+ ## TABLE OF CONTENTS
+
+1. [Reverse and Array](#Reverse-Array)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
+1. [](#)
