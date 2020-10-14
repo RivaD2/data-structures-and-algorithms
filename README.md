@@ -29,7 +29,7 @@
 # 401 Data Structure and Algorithms Challenges:
  ## TABLE OF CONTENTS
 
-1. [Reverse and Array](#Reverse-Array)
+1. [Reverse and Array](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/reverseArray)
 1. [](#)
 1. [](#)
 1. [](#)
@@ -43,3 +43,4 @@
 1. [](#)
 1. [](#)
 1. [](#)
+
