@@ -21,15 +21,13 @@ function insertShiftArray(arr, value) {
     for(let i = 0; i < arr.length; i++) {
         if(i === midpoint) {
             emptyArray[i] = value;
-        } if(i < midpoint) {
+        } else if(i < midpoint) {
             emptyArray[i] = arr[i];
         } else {
            (i >= midpoint)
             emptyArray[i + 1] = arr[i];
         }
-        return emptyArray;
     }
-
-
+    return emptyArray;
 }
 
