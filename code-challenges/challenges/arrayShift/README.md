@@ -1,0 +1,13 @@
+# CHALLENGE 2: Reverse an Array
+
+# Array Shift
+
+
+## Challenge
+- Write a function called `insertShiftArray` which takes in an array and the value to be added without utilizing any of the built-in methods available in JS.
+
+## Approach & Efficiency
+Not applicable
+
+## Solution
+![Whiteboard](./reverse-array.png)
