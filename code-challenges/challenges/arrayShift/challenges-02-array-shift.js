@@ -21,7 +21,7 @@ function insertShiftArray(arr, value) {
     for(let i = 0; i < arr.length; i++) {
         if(i === midpoint) {
             emptyArray[i] = value;
-        } else if(i < midpoint) {
+        } if(i < midpoint) {
             emptyArray[i] = arr[i];
         } else {
            (i >= midpoint)
@@ -30,4 +30,7 @@ function insertShiftArray(arr, value) {
     }
     return emptyArray;
 }
+insertShiftArray([1, 4, 5, 6,], 7);
+//  [1, 4, 7, 5, 6]
 
+module.exports = insertShiftArray;
