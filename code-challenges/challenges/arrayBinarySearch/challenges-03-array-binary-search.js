@@ -21,16 +21,16 @@
 
 
 
-function binarySearch  (sortedArr, sKey){
-    var start  = 0 , end = sortedArr.length -1 , mid ;
+function binarySearch(sortedArr, sKey){
+    var start  = 0, end = sortedArr.length -1, mid;
     while (start <= end){
         mid = Math.floor((start + end )/2);
-        if( sortedArr[mid] === sKey ) return sKey ;
+        if( sortedArr[mid] === sKey ) return mid ;
         else if (sortedArr[mid] < sKey) start = mid + 1;
         else end = mid - 1;
     }
     return -1 ;
 }
-binarySearch(([1, 4, 5, 6,7], 7));
+console.log(binarySearch([1, 4, 5, 6, 7], 7));
 
 module.exports = binarySearch;
