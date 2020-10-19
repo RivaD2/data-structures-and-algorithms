@@ -32,7 +32,7 @@
 1. [Reverse an Array](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/reverseArray)
 1. [Insert Shift Array](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/arrayShift)
 1. [Binary Search](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/arrayBinarySearch)
-1. [](#)
+1. [Linked List](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [](#)
 1. [](#)
 1. [](#)
