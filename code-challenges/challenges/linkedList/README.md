@@ -16,4 +16,4 @@
 Not applicable
 
 ## Solution
-![]()
+![Whiteboard](./linkedList.png)

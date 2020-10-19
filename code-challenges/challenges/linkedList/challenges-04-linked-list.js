@@ -1,8 +1,7 @@
 'use strict'
 
 //Step 1: Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
-                                                       //node                node
-// [head pointer] ---> [head node][1(info), link]---> [2(info), link]---> [3(info), link to next]--->Null
+
 class Node {
     constructor(data, next = null ) {
         this.data = data;
@@ -54,18 +53,18 @@ length++;
 
 this.includes = function(element) {
     let currentNode = head;
-    let index = -1;
+    let isinList = false;
     //while there is a current node...
     while(currentNode) {
         index++;
-        // if 1st element is what we pass in...
+        // if 1st element matches what we passed in
         if(currentNode.element === element) {
             return index;
         }
         currentNode = currentNode.next;
     }
     //element is not in the linkedList
-    return -1;
+    return isinList;
 };
 
 /*
