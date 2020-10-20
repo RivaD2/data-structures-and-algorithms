@@ -49,13 +49,13 @@ class LinkedList {
         }
     }
 
-    includes(element) {
+    includes(data) {
         let currentNode = this.head;
         let isInList = false;
         //while there is a current node...
         while (currentNode) {
             // if 1st element matches what we passed in
-            if (currentNode.element === element) {
+            if (currentNode.data === data) {
                 isInList = true;
             }
             console.log('current node',currentNode)
