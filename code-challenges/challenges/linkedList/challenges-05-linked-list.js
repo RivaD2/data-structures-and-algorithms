@@ -20,6 +20,7 @@ class LinkedList {
     constructor(head = null) {
         this.head = head;
         this.length = 0;
+        this.tail = null
     }
     /*
     - Created insert() method
@@ -27,6 +28,7 @@ class LinkedList {
     - The newly created node will have two properties as defined in the constructor function of the Node class
     - These props are data and next
     */
+
 
 
     insert(data) {
@@ -58,7 +60,7 @@ class LinkedList {
             if (currentNode.data === data) {
                 isInList = true;
             }
-            console.log('current node',currentNode)
+            console.log('current node', currentNode)
             console.log('next node', currentNode.next);
             currentNode = currentNode.next;
         }
@@ -67,42 +69,82 @@ class LinkedList {
     }
 
 
+    isEmpty() {
+        return !this.head || this.length === 0;
+    }
+    /*
+    - If the list is empty then add an element and it will be the  head
+    - If the list is not empty then iterate to the end of the list and add an element at the end of the list
+    */
+    append(data) {
+        const newNode = new Node(data);
+        if (this.isEmpty()) {
+            this.head = this.tail = newNode;
+        }
+        else {
+            //pointer of tail is newNode
+        this.tail.next = newNode;
+        //tail is ow the newNode
+        this.tail = newNode;
+        }
+        this.length++;
+        //return list
+        return this;
+    }
 
-/*
-- Defined a method called toString takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
-"{ a } -> { b } -> { c } -> NULL"
-*/
 
+        /*
+    - The newNode is the new node to be inserted.
+    - The existingNode is the node before which the new node is inserted.
+    - If the existingNode is null, the insertBefore() inserts the newNode
+    at the end of the parentNode‘s child nodes.
+    - Adding a new node with the given newValue immediately before the first value node
+    */
+
+
+
+
+    /*
+    - Defined a method called toString takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
+    "{ a } -> { b } -> { c } -> NULL"
+    */
+
+    //should show us all items in list
     toString() {
-        let object = '';
+        let output = '';
         let currentNode = this.head;
-        while ( currentNode) {
-            object += `${currentNode.data} --->`;
+        while (currentNode) {
+            output = `${output} ${currentNode.value} --->`
             currentNode = currentNode.next;
         }
-        object += 'null';
-        return object;
+        console.log(`${output} null`)
     }
+
 }
 
-LinkedList.fromValues = function(...values) {
+
+//change values to data perhaps... here and in print() method
+LinkedList.fromValues = function (...values) {
     const linkedList = new LinkedList()
     //loop over values in reverse order
     // I am inserting at beginning, so very first element we insert will be last element in list
-    for(let i = values.length - 1; i >= 0; i--) {
+    for (let i = values.length - 1; i >= 0; i--) {
         linkedList.insert(values[i]);
     }
     return linkedList;
- };
+};
 
-//empty list
+
+//intializing empty list
 let list = new LinkedList();
 
-//now I have two elements or values
+const sampleList = LinkedList.fromValues(10, 20, 30, 40);
+
+// now I have two elements or values
 console.log('list.insert');
 list.insert(10);
 console.log('list.insert');
-list.insert(20);
+list.insert(20, 5);
 console.log('list.includes');
 list.includes(10);
 console.log('list.toString');
