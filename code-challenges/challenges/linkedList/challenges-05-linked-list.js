@@ -17,7 +17,7 @@ initially created it does not contain any nodes.
 - It is when we add our first node to the linked list, we will assign it to the head pointer.
 */
 class LinkedList {
-    constructor() {
+    constructor(head = null) {
         this.head = head;
         this.length = 0;
     }
@@ -27,42 +27,46 @@ class LinkedList {
     - The newly created node will have two properties as defined in the constructor function of the Node class
     - These props are data and next
     */
+
+
     insert(data) {
-        const newNode = new Node(data, this.head);
-        this.head = newNode;
+        const newNode = new Node(data);
         this.length++;
         // this means there are no nodes in linkedList yet...
-        if (head === null) {
-            head = node;
+        if (this.head === null) {
+            this.head = newNode;
             // else means there is more than one element in the list
         } else {
             //then start at head or beginning of list
-            currentNode = head;
+            let currentNode = this.head;
             // if there is a next, not a null,
             while (currentNode.next) {
                 //then traverse
                 currentNode = currentNode.next;
             }
             // Once we are on last node...
-            currentNode.next = node;
+            currentNode.next = newNode;
         }
     }
 
     includes(element) {
-        let currentNode = head;
+        let currentNode = this.head;
         let isInList = false;
         //while there is a current node...
         while (currentNode) {
-            index++;
             // if 1st element matches what we passed in
             if (currentNode.element === element) {
                 isInList = true;
             }
+            console.log('current node',currentNode)
+            console.log('next node', currentNode.next);
             currentNode = currentNode.next;
         }
         //element is not in the linkedList
         return isInList;
     }
+
+
 
 /*
 - Defined a method called toString takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
@@ -71,21 +75,37 @@ class LinkedList {
 
     toString() {
         let object = '';
-        while (currentNode !== null) {
+        let currentNode = this.head;
+        while ( currentNode) {
             object += `${currentNode.data} --->`;
+            currentNode = currentNode.next;
         }
         object += 'null';
         return object;
     }
 }
 
+LinkedList.fromValues = function(...values) {
+    const linkedList = new LinkedList()
+    //loop over values in reverse order
+    // I am inserting at beginning, so very first element we insert will be last element in list
+    for(let i = values.length - 1; i >= 0; i--) {
+        linkedList.insert(values[i]);
+    }
+    return linkedList;
+ };
+
 //empty list
 let list = new LinkedList();
 
 //now I have two elements or values
+console.log('list.insert');
 list.insert(10);
+console.log('list.insert');
 list.insert(20);
+console.log('list.includes');
 list.includes(10);
+console.log('list.toString');
 list.toString();
 
 
