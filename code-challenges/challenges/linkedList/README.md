@@ -17,7 +17,7 @@
 Not applicable
 
 ## Solution
-![Whiteboard](./linkedList.png)
+![Whiteboard](linkedList.png)
 
 ------------------------------------------
 
@@ -33,7 +33,7 @@ Not applicable
 Not applicable
 
 ## Solution
-![Whiteboard](./ll-insertions.png)
+![Whiteboard](ll-insertions.png)
 
 
 ------------------------------------------
@@ -48,4 +48,4 @@ Not applicable
 Not applicable
 
 ## Solution
-![Whiteboard](./)
+![Whiteboard](ll-kth-from-end.png)
