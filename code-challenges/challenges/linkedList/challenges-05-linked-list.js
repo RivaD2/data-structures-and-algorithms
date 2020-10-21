@@ -30,7 +30,6 @@ class LinkedList {
     */
 
 
-
     insert(data) {
         const newNode = new Node(data);
         this.length++;
@@ -84,11 +83,11 @@ class LinkedList {
         else {
             //pointer of tail is newNode
         this.tail.next = newNode;
-        //tail is ow the newNode
+        //tail is now the newNode
         this.tail = newNode;
         }
         this.length++;
-        //return list
+        //return list I could say return newNode;
         return this;
     }
 
@@ -100,6 +99,36 @@ class LinkedList {
     at the end of the parentNode‘s child nodes.
     - Adding a new node with the given newValue immediately before the first value node
     */
+    insertBefore(value, newValue) {
+        let previousNode = this.head;
+        let currentNode = previousNode.next;
+        while(currentNode !== null) {
+            if(currentNode.data === value){
+                const newNode = new Node(newValue);
+                newNode.next = currentNode;
+                previousNode.next = newNode;
+                break;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+    }
+
+    //Insert the new node by setting its Next value to be equal to the current node's Next value,
+    // set the current node's next value to be the new node.
+
+    insertAfter(value, newValue) {
+        let currentNode = this.head;
+        while(currentNode !== null) {
+            if(currentNode.data === value){
+                const newNode = new Node(newValue);
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                break;
+            }
+            currentNode = currentNode.next;
+        }
+    }
 
 
 
@@ -114,17 +143,19 @@ class LinkedList {
         let output = '';
         let currentNode = this.head;
         while (currentNode) {
-            output = `${output} ${currentNode.value} --->`
+            output = `${output} ${currentNode.data} --->`
             currentNode = currentNode.next;
         }
-        console.log(`${output} null`)
+        return `${output} null`;
     }
 
 }
 
 
+
 //change values to data perhaps... here and in print() method
 LinkedList.fromValues = function (...values) {
+    console.log('from values got values', values)
     const linkedList = new LinkedList()
     //loop over values in reverse order
     // I am inserting at beginning, so very first element we insert will be last element in list
@@ -138,7 +169,7 @@ LinkedList.fromValues = function (...values) {
 //intializing empty list
 let list = new LinkedList();
 
-const sampleList = LinkedList.fromValues(10, 20, 30, 40);
+// const sampleList = LinkedList.fromValues(10, 20, 30, 40, 50);
 
 // now I have two elements or values
 console.log('list.insert');

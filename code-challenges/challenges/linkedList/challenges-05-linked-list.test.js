@@ -11,7 +11,7 @@ describe('Testing Challenge 05', () => {
         expect(linkedList.length).toBe(0);
     });
 
-    test('Insert method can properly insert into linked list', () => {
+    test('Testing if insert method can properly insert into linked list', () => {
         const linkedList = new LinkedList();
             linkedList.insert(10);
             const oldHead = linkedList.head;
@@ -23,8 +23,8 @@ describe('Testing Challenge 05', () => {
         });
 });
 
-    describe('Testing includes method to see whether value passed as arg exist as a Node in the list', () => {
-        test('it returns false', () => {
+    describe('Testing includes method', () => {
+        test('Whether value passed as arg exist as a Node in the list', () => {
             const linkedList = new LinkedList();
             linkedList.insert(5);
             expect(linkedList.includes(10)).toBe(false);
@@ -32,3 +32,37 @@ describe('Testing Challenge 05', () => {
             expect(linkedList.includes(10)).toBe(true);
         })
     })
+
+    describe('appends method', () => {
+        test('Whether method add value to end of list', () => {
+            const linkedList = new LinkedList();
+            linkedList.append(6);
+            expect(linkedList.tail.data).toEqual(6);
+            linkedList.append(9);
+            expect(linkedList.tail.data).toEqual(9);
+        })
+    });
+
+    describe('insertBefore', () => {
+        test('Whether method adds a new node with  given newValue immediately before the first value node', () => {
+            const linkedList = new LinkedList();
+            linkedList.append(1);
+            linkedList.append(2);
+            linkedList.append(3);
+            expect(linkedList.toString()).toEqual(' 1 ---> 2 ---> 3 ---> null');
+            linkedList.insertBefore(3, 5);
+            expect(linkedList.toString()).toEqual(" 1 ---> 2 ---> 5 ---> 3 ---> null");
+        })
+    });
+
+    describe('insertAfter', () => {
+        test('Whether method adds a new node with given newValue immediately after the first value node', () => {
+            const linkedList = new LinkedList();
+            linkedList.append(1);
+            linkedList.append(2);
+            linkedList.append(3);
+            expect(linkedList.toString()).toEqual(' 1 ---> 2 ---> 3 ---> null');
+            linkedList.insertAfter(3, 5);
+            expect(linkedList.toString()).toEqual(" 1 ---> 2 ---> 3 ---> 5 ---> null");
+        })
+    });
