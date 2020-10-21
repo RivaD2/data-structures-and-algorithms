@@ -23,6 +23,16 @@ describe('Testing Challenge 05', () => {
         });
 });
 
+    describe('Testing toString Method', () => {
+        test('Whether method adds a new node with given newValue immediately after the first value node', () => {
+            const linkedList = new LinkedList();
+            linkedList.append(1);
+            linkedList.append(4);
+            linkedList.append(5);
+            expect(linkedList.toString()).toEqual(' 1 ---> 4 ---> 5 ---> null');
+        })
+    });
+
     describe('Testing includes method', () => {
         test('Whether value passed as arg exist as a Node in the list', () => {
             const linkedList = new LinkedList();
