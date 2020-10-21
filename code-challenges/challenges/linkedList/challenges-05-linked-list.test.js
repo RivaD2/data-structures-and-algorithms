@@ -76,3 +76,11 @@ describe('Testing Challenge 05', () => {
             expect(linkedList.toString()).toEqual(" 1 ---> 2 ---> 3 ---> 5 ---> null");
         })
     });
+
+    /*New tests for challenge 7:
+    - Where k is greater than the length of the linked list
+    - Where k and the length of the list are the same
+    - Where k is not a positive integer
+    - Where the linked list is of a size 1
+    - “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+    */
