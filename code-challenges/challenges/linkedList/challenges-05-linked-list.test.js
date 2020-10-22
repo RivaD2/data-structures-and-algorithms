@@ -76,3 +76,22 @@ describe('Testing Challenge 05', () => {
             expect(linkedList.toString()).toEqual(" 1 ---> 2 ---> 3 ---> 5 ---> null");
         })
     });
+
+    /*New tests for challenge 7:
+    - Where k is greater than the length of the linked list
+    - Where k and the length of the list are the same
+    - Where k is not a positive integer
+    - Where the linked list is of a size 1
+    - “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+    */
+   describe('removeKthFromEnd', () => {
+    test('Whether k is greater than the length of the linked list', () => {
+        const linkedList = new LinkedList();
+        linkedList.append(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        expect(linkedList.removeKthFromEnd(k)).toEqual();
+
+    })
+});

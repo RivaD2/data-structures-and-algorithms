@@ -149,6 +149,26 @@ class LinkedList {
         return `${output} null`;
     }
 
+
+    removeKthFromEnd(head, k) {
+
+        let firstPointer = head;
+        let secondPointer = head;
+
+        for(i = 0; i < k ; i++) {
+            firstPointer = firstPointer.next;
+        }
+        while(firstPointer.next !== null){
+            firstPointer = firstPointer.next;
+            secondPointer = secondPointer.next;
+        }
+        const target = secondPointer.next;
+        secondPointer.next = target.next;
+        target.next = null;
+
+        return secondPointer.next
+    }
+
 }
 
 
@@ -180,7 +200,7 @@ console.log('list.includes');
 list.includes(10);
 console.log('list.toString');
 list.toString();
-
+list.removeKthFromEnd([1, 2, 3, 4, 5], 2 )
 
 
 

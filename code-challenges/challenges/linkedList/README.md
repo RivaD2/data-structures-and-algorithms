@@ -17,13 +17,14 @@
 Not applicable
 
 ## Solution
-![Whiteboard](./linkedList.png)
+![Whiteboard](linkedList.png)
 
 ------------------------------------------
 
-## CHALLENGE 5: Extend the Linked List By Adding More Methods
+## CHALLENGE 6: Extend the Linked List By Adding More Methods
 
-Write the following methods for the Linked List class:
+**Write the following methods for the Linked List class:**
+
 - `.append(value)` which adds a new node with the given value to the end of the list
 - `.insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node
 - `.insertAfter(value, newVal`) which add a new node with the given newValue immediately after the first value node
@@ -32,7 +33,19 @@ Write the following methods for the Linked List class:
 Not applicable
 
 ## Solution
-![Whiteboard](./ll-insertions.png)
+![Whiteboard](ll-insertions.png)
 
 
 ------------------------------------------
+
+## CHALLENGE 7: Extend the Linked List By Adding More Methods
+
+**Write a method for the Linked List class which takes a number, k, as a parameter:**
+- Return the node’s value that is k from the end of the linked list.
+- You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+## Approach & Efficiency
+Not applicable
+
+## Solution
+![Whiteboard](ll-kth-from-end.png)
