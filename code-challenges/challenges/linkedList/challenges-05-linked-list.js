@@ -149,15 +149,15 @@ class LinkedList {
         return `${output} null`;
     }
 
-    removeKthFromEnd(head, k) {
-        const start = new Node(null);
-        start.next = head;
 
-        let firstPointer = start;
-        while(k > 0) {
+    removeKthFromEnd(head, k) {
+
+        let firstPointer = head;
+        let secondPointer = head;
+
+        for(i = 0; i < k ; i++) {
             firstPointer = firstPointer.next;
-        };
-        let secondPointer = start;
+        }
         while(firstPointer.next !== null){
             firstPointer = firstPointer.next;
             secondPointer = secondPointer.next;
