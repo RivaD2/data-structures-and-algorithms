@@ -79,12 +79,11 @@ class LinkedList {
         const newNode = new Node(data);
         if (this.isEmpty()) {
             this.head = this.tail = newNode;
-        }
-        else {
+        } else {
             //pointer of tail is newNode
-        this.tail.next = newNode;
-        //tail is now the newNode
-        this.tail = newNode;
+            this.tail.next = newNode;
+            //tail is now the newNode
+            this.tail = newNode;
         }
         this.length++;
         //return list I could say return newNode;
@@ -92,7 +91,7 @@ class LinkedList {
     }
 
 
-        /*
+    /*
     - The newNode is the new node to be inserted.
     - The existingNode is the node before which the new node is inserted.
     - If the existingNode is null, the insertBefore() inserts the newNode
@@ -102,8 +101,8 @@ class LinkedList {
     insertBefore(value, newValue) {
         let previousNode = this.head;
         let currentNode = previousNode.next;
-        while(currentNode !== null) {
-            if(currentNode.data === value){
+        while (currentNode !== null) {
+            if (currentNode.data === value) {
                 const newNode = new Node(newValue);
                 newNode.next = currentNode;
                 previousNode.next = newNode;
@@ -119,8 +118,8 @@ class LinkedList {
 
     insertAfter(value, newValue) {
         let currentNode = this.head;
-        while(currentNode !== null) {
-            if(currentNode.data === value){
+        while (currentNode !== null) {
+            if (currentNode.data === value) {
                 const newNode = new Node(newValue);
                 newNode.next = currentNode.next;
                 currentNode.next = newNode;
@@ -150,15 +149,15 @@ class LinkedList {
     }
 
 
-    removeKthFromEnd(head, k) {
+    KthFromEnd(head, k) {
 
-        let firstPointer = head;
-        let secondPointer = head;
+        let firstPointer = this.head;
+        let secondPointer = this.head;
 
-        for(i = 0; i < k ; i++) {
+        for (let i = 0; i < k; i++) {
             firstPointer = firstPointer.next;
         }
-        while(firstPointer.next !== null){
+        while (firstPointer.next !== null) {
             firstPointer = firstPointer.next;
             secondPointer = secondPointer.next;
         }
@@ -169,8 +168,64 @@ class LinkedList {
         return secondPointer.next
     }
 
-}
+    // KthFromEnd(data) {
+    //     //the data will be the k at the end
+    //     let  counter = 0;
+    //     let current = this.head;
+    //     //if data passed into function is negative, it is not in list
+    //     if(data < 0){
+    //         return 'the num is negative, please enter positive num';
+    //     }
+    //     //head needs to not be null
+    //     //traverse if head is not null
+    //     while(current) {
+    //         counter++;
+    //         //traversing
+    //         current = current.next;
+    //     }
+    //     //index always starts at 0
+    //     //if num is positive, it will count nodes in list, which are saved in counter
+    //     let result = counter - 1 - data;
+    //     if(result < 0) {
+    //         return 'sorry not in list'
+    //     }
+    //     current = this.head;
+    //     while(result > 0) {
+    //         result--;
+    //         current = current.next;
+    //     }
+    //     return current.data;
+    // }
 
+    llZip(zipList2) {
+        //we will return a new list with two lists combined
+        //I need to create a new list
+        const newList = new LinkedList;
+        // I need to hold the length in a var, the length is unknown
+        //I have to keep track of both heads;
+        // set head to pointer one
+        //set head of list two to pointer two
+        let pointerOne = this.head;
+        let pointerTwo = zipList2.head;
+        //open while loop so I can traverse
+        while (pointerOne || pointerTwo) {
+            if (pointerOne) {
+                //will take pointerOne and include it into list
+                //I have to make sure I continue through all nodes in list
+                newList.append(pointerOne.data);
+                pointerOne = pointerOne.next;
+            }
+            if (pointerTwo) {
+                //will take pointerTwo and add it into list
+                //I have to make sure I continue through all nodes in list
+                newList.append(pointerTwo.data);
+                pointerTwo = pointerTwo.next;
+            }
+        }
+        return newList.toString();
+    }
+
+}
 
 
 //change values to data perhaps... here and in print() method
@@ -188,23 +243,28 @@ LinkedList.fromValues = function (...values) {
 
 //intializing empty list
 let list = new LinkedList();
+let list2 = new LinkedList();
+list.append(3);
+
+list.append(2);
+
+list.append(1);
+
 
 // const sampleList = LinkedList.fromValues(10, 20, 30, 40, 50);
 
-// now I have two elements or values
-console.log('list.insert');
-list.insert(10);
-console.log('list.insert');
-list.insert(20, 5);
-console.log('list.includes');
-list.includes(10);
-console.log('list.toString');
-list.toString();
-list.removeKthFromEnd([1, 2, 3, 4, 5], 2 )
-
-
-
-
+//now I have two elements or values
+// console.log('list.insert');
+// list.insert(10);
+// console.log('list.insert');
+// list.insert(20, 5);
+// console.log('list.includes');
+// list.includes(10);
+// console.log('list.toString');
+// list.toString();
+console.log(list.KthFromEnd(3));
+// list.llZip(list2);
+// console.log(list.llZip(list2));
 
 
 module.exports = LinkedList;
