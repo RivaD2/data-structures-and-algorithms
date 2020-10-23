@@ -35,7 +35,7 @@
 1. [Linked List Creation : insert(), into(), toString() Methods](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [Extend the Linked List: Append(), insertBefore(), insertAfter() ](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [Extend the Linked List: ll-kth-from-end](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
-1. [](#)
+1. [Extending the LinkedList: ll-Zip](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [](#)
 1. [](#)
 1. [](#)
