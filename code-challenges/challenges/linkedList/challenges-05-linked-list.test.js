@@ -91,7 +91,7 @@ describe('Testing Challenge 05', () => {
         linkedList.append(2);
         linkedList.append(3);
         linkedList.append(4);
-        expect(linkedList.removeKthFromEnd(k)).toEqual();
+        expect(linkedList.KthFromEnd(k)).toEqual();
 
     })
 });
