@@ -13,8 +13,7 @@
 - Define a method called `toString` (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
 
-## Approach & Efficiency
-Not applicable
+
 
 ## Solution
 ![Whiteboard](linkedList.png)
@@ -29,8 +28,7 @@ Not applicable
 - `.insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node
 - `.insertAfter(value, newVal`) which add a new node with the given newValue immediately after the first value node
 
-## Approach & Efficiency
-Not applicable
+
 
 ## Solution
 ![Whiteboard](ll-insertions.png)
@@ -44,8 +42,7 @@ Not applicable
 - Return the node’s value that is k from the end of the linked list.
 - You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
-## Approach & Efficiency
-Not applicable
+
 
 ## Solution
 ![Whiteboard](ll-kth-from-end.png)
@@ -60,9 +57,6 @@ Not applicable
 - Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
 
 - Try and keep additional space down to O(1).
-
-## Approach & Efficiency
-Not applicable
 
 ## Solution
 ![Whiteboard](ll-Zip.png)
