@@ -62,7 +62,7 @@ CHALLENGE 8: Extend the Linked List
 Not applicable
 
 ## Solution
-![Whiteboard]()
+![Whiteboard](ll-Zip.png)
 
 
 
