@@ -20,4 +20,4 @@ Define the following methods:
 
 
 ## Solution
-![Whiteboard]()
+![Whiteboard](stackAndQueue.png)
