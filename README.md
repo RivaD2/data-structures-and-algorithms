@@ -36,7 +36,7 @@
 1. [Extend the Linked List: Append(), insertBefore(), insertAfter() ](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [Extend the Linked List: ll-kth-from-end](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [Extending the LinkedList: ll-Zip](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
-1. [](#)
+1. [Stack and a Queue Implementation](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/stacksAndQueues)
 1. [](#)
 1. [](#)
 1. [](#)
