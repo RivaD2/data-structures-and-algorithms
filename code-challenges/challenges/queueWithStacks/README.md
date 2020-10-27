@@ -13,4 +13,4 @@
 
 
 ## Solution
-![Whiteboard](.)
+![Whiteboard](queueWithStacks.png)
