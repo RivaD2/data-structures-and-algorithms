@@ -71,3 +71,4 @@ class Queue  {
     }
 }
 
+module.exports = Stack;
