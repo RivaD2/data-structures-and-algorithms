@@ -70,5 +70,12 @@ class Queue  {
         }
     }
 }
+let stack = new Stack();
+
+stack.push(3, 2, 1, );
+
+stack.push(1);
+console.log('popping off stack', stack.pop(1));
+stack.pop(1);
 
 module.exports = Stack;

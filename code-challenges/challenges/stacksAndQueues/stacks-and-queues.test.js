@@ -17,3 +17,12 @@ Can successfully empty a queue after multiple dequeues
 Can successfully instantiate an empty queue
 Calling dequeue or peek on empty queue raises exception
 */
+
+describe('Testing Challenge 10', () => {
+    const stack = new Stack();
+
+   test('Can successfully push on to a stack', () => {
+        expect(stack.top).toBeNull();
+        expect(stack.length).toBe(1);
+    });
+});
