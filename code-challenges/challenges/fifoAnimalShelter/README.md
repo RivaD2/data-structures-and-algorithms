@@ -1,6 +1,6 @@
 # CHALLENGE 12: First-in, First out Animal Shelter
 
-# Create class AnimalShelter that operates using FILO approach
+# Create class AnimalShelter that operates using FIFO approach
 
 
 ## Challenge
