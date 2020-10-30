@@ -38,7 +38,7 @@
 1. [Extending the LinkedList: ll-Zip](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/linkedList)
 1. [Stack and a Queue Implementation](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/stacksAndQueues)
 1. [Implemneting a Queue with Stacks](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/queueWithStacks)
-1. [](#)
+1. [Multi-bracket Validation using a Stack](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/multiBracketValidation)
 1. [](#)
 1. [](#)
 1. [](#)
