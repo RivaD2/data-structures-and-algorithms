@@ -71,13 +71,6 @@ class BinarySearchTree {
 }
 
 
-
-
-
-
-
-
-
 let tree = new BinarySearchTree();
 tree.add(10);
 tree.add(5);
