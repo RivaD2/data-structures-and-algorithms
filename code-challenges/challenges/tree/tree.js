@@ -8,6 +8,59 @@ class Node {
     }
 }
 
+
+class BinaryTree {
+    constructor() {
+        this.root = null;
+    }
+    preOrder(root) {
+        //root ---> left-----> right
+        let current = root;
+        if(current) {
+            console.log(current.value);
+        }
+        if(current.left) {
+            this.preOrder(root.left);
+        } 
+        if(current.right) {
+            this.preOrder(root.right);
+        }
+        return;
+    }
+
+
+    //left----> root----> right
+    inOrder(root) {
+        let current = root;
+        if(current.left) {
+        this.inOrder(root.left)
+        }
+        if(current) {
+            current.value;
+        }
+        if(current.right) {
+            this.inOrder(current.right);
+        }
+        return;
+    }
+
+
+    postOrder(root) {
+        let current = root;
+        if(current.left) {
+            this.postOrder(current.left);
+        }
+        if(current.right) {
+            this.postOrder(currentNode.right)
+        }
+        if(current) {
+            console.log(current.value)
+        }
+        return;
+    }
+}
+
+
 class BinarySearchTree {
     constructor() {
         //empty root
@@ -53,7 +106,7 @@ class BinarySearchTree {
     contains(value) {
         if(this.root === null) return false;
         let current = this.root;
-        present = false;
+        let present = false;
         //while there is something to loop over and while I haven't found it
         //as soon as there is no current, loop will stop
         while(current && !present) {
@@ -72,6 +125,10 @@ class BinarySearchTree {
 
 
 let tree = new BinarySearchTree();
+const Node1 = new Node(4);
+const Node2 = new Node(2);
+const Node3 = new Node(3);
+
 tree.add(10);
 tree.add(5);
 tree.add(13);
@@ -81,5 +138,5 @@ tree.add(16);
 tree.add(7);
 tree.contains(5);
 tree.contains(2);
-
+tree.preOrder(tree.root);
 //have some nodes that are connected and values to left and right
