@@ -7,4 +7,4 @@
 
 ## Solution
 
-![Whiteboard]()
+![Whiteboard](findMax.png)
