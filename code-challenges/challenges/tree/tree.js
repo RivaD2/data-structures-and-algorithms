@@ -44,7 +44,8 @@ class BinaryTree {
         return;
     }
 
-
+//left---> right---> root
+//focuses on bottom nodes of tree
     postOrder(root) {
         let current = root;
         if(current.left) {
@@ -140,3 +141,4 @@ tree.contains(5);
 tree.contains(2);
 tree.preOrder(tree.root);
 //have some nodes that are connected and values to left and right
+module.exports = BinaryTree;

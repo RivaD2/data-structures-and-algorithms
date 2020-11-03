@@ -40,7 +40,7 @@
 1. [Implemneting a Queue with Stacks](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/queueWithStacks)
 1. [Multi-bracket Validation using a Stack](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/multiBracketValidation)
 1. [Binary Tree and BST Implementation](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/tree)
-1. [](#)
+1. [ind the Maximum Value in a Binary Tree](https://github.com/RivaD2/data-structures-and-algorithms/tree/master/code-challenges/challenges/find-maximum-binary-tree)
 1. [](#)
 1. [](#)
 
