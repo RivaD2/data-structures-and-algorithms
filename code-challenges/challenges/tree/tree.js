@@ -9,7 +9,7 @@ class Node {
 }
 
 
-class BinaryTree {
+class BinaryTree  {
     constructor() {
         this.root = null;
     }
@@ -139,6 +139,5 @@ tree.add(16);
 tree.add(7);
 tree.contains(5);
 tree.contains(2);
-tree.preOrder(tree.root);
 //have some nodes that are connected and values to left and right
 module.exports = BinaryTree;
