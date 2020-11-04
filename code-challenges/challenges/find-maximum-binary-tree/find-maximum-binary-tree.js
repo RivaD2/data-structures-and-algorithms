@@ -6,7 +6,6 @@ class findMaxBinaryTree extends BinaryTree {
     constructor() {
         super();
         this.max = 0;
-
     }
 
 findMaximumValue() {
@@ -23,11 +22,14 @@ findMaximumValue() {
         while(queue.length) {
             //taking from beginning of queue 
             //dequeuing here with shift
-        node = queue.shift();
-        data.push(node);
-        //add to queue if there is a left or right node
-        if(node.left) queue.push(node.left);
-        if(node.right) queue.push(node.right);
+            node = queue.shift();
+            data.push(node);
+            if(node.value > this.max){
+                this.max = node.value;
+            }
+            //add to queue if there is a left or right node
+            if(node.left) queue.push(node.left);
+            if(node.right) queue.push(node.right);
         } 
         //data holds nodes I've visited
         return data;

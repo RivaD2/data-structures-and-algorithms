@@ -8,4 +8,4 @@
 
 ## Solution
 
-![Whiteboard](BFT.png)
+![Whiteboard](BFS.png)
