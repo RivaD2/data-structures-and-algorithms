@@ -5,12 +5,12 @@ const BinaryTree = require("../tree/tree");
 class Tree extends BinaryTree {
     constructor(value) {
         super(value);
-        this.max = 0;
         this.value = value;
     }
 
-    bft(tree, callback) {
+    bfs() {
           if(tree === null) {
+              console.log(tree);
               return;
           }
           let queue = [tree];
@@ -31,5 +31,3 @@ class Tree extends BinaryTree {
     }
 }
 
-const t = new Tree(1, null, null)
-     console.log(t);
