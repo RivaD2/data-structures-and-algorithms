@@ -9,9 +9,11 @@ class Node {
 }
 
 
-class BinaryTree  {
+class BinaryTree  extends Node {
     constructor() {
+        super()
         this.root = null;
+        
     }
     preOrder(root) {
         //root ---> left-----> right
