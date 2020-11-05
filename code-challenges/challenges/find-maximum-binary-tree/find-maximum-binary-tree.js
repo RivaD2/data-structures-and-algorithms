@@ -39,3 +39,4 @@ findMaximumValue(tree, rootNode, searchValue) {
 }  
 //give tree root and then a left and right, build tree by hand
 findMaxValue(tree, tree[10], '12');
+module.exports = findMaxBinaryTree;

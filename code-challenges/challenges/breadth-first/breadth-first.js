@@ -1,33 +1,37 @@
 'use strict'
 
 const BinaryTree = require("../tree/tree");
-
 class Tree extends BinaryTree {
-    constructor(value) {
-        super(value);
-        this.value = value;
+    constructor() {
+        super();
+        this.root = null;
     }
 
-    bfs() {
-          if(tree === null) {
-              console.log(tree);
-              return;
-          }
-          let queue = [tree];
-          while(queue.length > 0) {
-              let item = queue.shift();
-              let value = item.value;
-              callback(value);
-              if(item.left === null && item.right === null) {
-                  continue;
-              }
-              if(item.left !== null) {
-                  queue.push(item.left);
-              }
-              if(item.right !== null) {
-                queue.push(item.right);
-            }
+
+    bft(tree) {
+        let queue = [];
+        if(!tree.root) {
+            return null;
+        } else {
+            queue.unshift(tree.root);
         }
+        let current = queue.pop();
+
+        while(current) {
+          if(current.left) {
+              queue.unshift(current.left);
+          }
+          if(current.right) {
+            queue.unshift(current.right);
+          }
+            current = queue.pop();
+        }   
+        return;
     }
 }
 
+const tree = new Tree();
+tree.root = new Node(1);
+tree.root.left = new Node(2);
+tree.root.right = new Node(3);
+breadthFirst(tree);
