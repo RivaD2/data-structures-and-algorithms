@@ -58,7 +58,6 @@ const fizzBuzzTree = unfizzyTree => {
     let queue = [];
     while(current) {
         const childCount = current.children.length;
-        //some() iterates through array until true is returned
         //looping through unfizzy tree and find all nodes to add to new tree
         for(let i = 0; i < childCount; i++) {
             const child = current.children[i];
