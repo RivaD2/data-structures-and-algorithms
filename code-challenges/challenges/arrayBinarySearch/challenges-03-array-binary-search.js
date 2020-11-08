@@ -20,7 +20,6 @@
 */
 
 
-
 function binarySearch(sortedArr, sKey){
     var start  = 0, end = sortedArr.length -1, mid;
     while (start <= end){
