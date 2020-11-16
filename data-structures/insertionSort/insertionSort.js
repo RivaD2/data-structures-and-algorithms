@@ -7,7 +7,7 @@ let insertionSort = (arr) => {
         let sublist = i - 1;
         while (sublist >= 0 && arr[sublist] > key) {
             arr[sublist + 1] = arr[sublist];
-            sublist = sublist - 1;
+            sublist--
         }
         arr[sublist + 1] = key;
     }
