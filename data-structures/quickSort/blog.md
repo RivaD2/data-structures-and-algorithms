@@ -40,4 +40,4 @@ ALGORITHM Swap(arr, i, low)
 
 ```
 
-![mergeSort]()
+![quickSort](quickSort-blog.md)
