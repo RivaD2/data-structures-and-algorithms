@@ -44,7 +44,7 @@
 13. [Breadth-first Traversal](data-structures/breadth-first)
 14. [Conduct “FizzBuzz” on a k-ary tree](data-structures/fizzBuzzTree)
 15. [Insertion Sort and Evaluating Java PseudoCode](data-structures/insertionSort)
-16. []()
+16. [Merge Sort by Evaluating Java PseudoCode](data-structures/mergeSort)
 17. []()
 18. []()
 19. []()
