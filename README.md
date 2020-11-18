@@ -45,7 +45,7 @@
 14. [Conduct “FizzBuzz” on a k-ary tree](data-structures/fizzBuzzTree)
 15. [Insertion Sort and Evaluating Java PseudoCode](data-structures/insertionSort)
 16. [Merge Sort by Evaluating Java PseudoCode](data-structures/mergeSort)
-17. []()
+17. [Quick Sort by Evaluating Java PseudoCode](data-structures/quickSort)
 18. []()
 19. []()
 20. []()
