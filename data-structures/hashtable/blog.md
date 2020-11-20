@@ -7,4 +7,4 @@
 contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
 - **hash:** takes in an arbitrary key and returns an index in the collection.
 
-![hashtable](hashtable-blog.md)
+![hashtable](hashtable-blog.png)
