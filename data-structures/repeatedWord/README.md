@@ -8,4 +8,5 @@ Without utilizing any of the built-in library methods available to your language
 Ex: "Once upon a time, there was a brave princess who..." ----> Output "a"
 Ex: "It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..." ----> Output "summer"
 
-![repeatedWord](repeatedWord.md)
+![repeatedWord](repeatedWord.png)
+
