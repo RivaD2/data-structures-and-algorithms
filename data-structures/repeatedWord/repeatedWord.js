@@ -1,21 +1,22 @@
 'use strict';
 
 const findRepeat = str => {
-    if(str.length === 1) {
+    if(str.length === 1 || 0) {
         return false;
     }
-    // Object will count frequency of individual values in str
-    // I will end up with an object in the end
+    // Using object to count frequency of individual values in str
+    // Thinking of frequency counter pattern when using this solution
     let counter = {};
-    // Loop over value in str
-    for(let i = 0; i < str.length; i++) {
-        let letter = str[i];
-        if(counter[letter]) {
-            counter[letter]++;
+    // Loop over values in str
+    for(let word of str) {
+        // Populate object and if word is already there, return word
+        if(counter[word]) {
+            return word;
         } else {
-            counter[letter] = 1;
+            // Intialize here if value is not yet in object
+            counter[word] = 1;
         }
     }
-    return counter;
+    return -1;
 }
 findRepeat("Once upon a time, there was a brave princess who");
