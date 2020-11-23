@@ -17,6 +17,6 @@ const findRepeat = str => {
             counter[word] = 1;
         }
     }
-    return -1;
+    return -1
 }
 findRepeat("Once upon a time, there was a brave princess who");
