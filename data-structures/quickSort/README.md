@@ -40,4 +40,4 @@ ALGORITHM Swap(arr, i, low)
 
 ```
 
-![quickSort](quickSort-blog.md)
+![quickSort](quickSort-blog.png)
