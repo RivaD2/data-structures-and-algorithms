@@ -37,8 +37,22 @@ class Node {
     };
   };
   
-  let tree = new BST();
-  tree.add(10);
-  tree.add(4);
+  const tree_intersection = ((tree1, tree2) {
+
+  });
+
+
+
+
+  let tree1 = new BST();
+  let tree2 = new BST();
+  tree1.add(10);
+  tree1.add(4);
+  tree1.add(20);
+  tree1.add(60)
+  tree1.add(20);
+  tree2.add(10);
+  tree2.add(100);
+  tree2.add(20);
     
   
