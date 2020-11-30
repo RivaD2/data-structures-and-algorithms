@@ -3,9 +3,11 @@
 class Graph {
     constructor() {
         this.adjacencyList = {};
+        this.nodes = [];
     }
-    addNode(vertex) {
-        if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    addNode(node) {
+        this.nodes.push(node);
+        this.edges[node] = [];
     }
     addEdge(v1, v2) {
         this.adjacencyList[v1].push(v2);
