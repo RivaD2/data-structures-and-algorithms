@@ -7,7 +7,7 @@ class BFSGraph extends graph {
     this.adjacencyList = {};
     this.nodes = [];
    }
-   BFTraversal(start) {
+   BFSTraversal(start) {
        const queue = [start];
        const result = [];
        const visited = {};
