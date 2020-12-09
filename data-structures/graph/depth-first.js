@@ -33,7 +33,28 @@ class Graph {
         return result;
     }
     preOrderDFSTraversal(adjacencyList) {
-        this.preOrderDFSTraversal.push()
-        }
+    // Create a Stack and add starting node in
+        let stack = [currentNode]
+        let visited = new Set();
+        stack.push(currentNode);
+
+    }
     
 }
+let g = new Graph();
+g.addNode("A");
+g.addNode("B");
+g.addNode("C");
+g.addNode("D");
+g.addNode("E");
+g.addNode("F");
+g.addNode("G");
+
+g.addEdge("A", "C");
+g.addEdge("A", "B");
+g.addEdge("A", "D");
+g.addEdge("D", "E");
+g.addEdge("E", "F");
+g.addEdge("B", "G");
+
+g.preOrder("A");
