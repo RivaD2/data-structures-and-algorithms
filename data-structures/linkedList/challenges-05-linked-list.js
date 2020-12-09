@@ -168,35 +168,6 @@ class LinkedList {
         return secondPointer.next
     }
 
-    // KthFromEnd(data) {
-    //     //the data will be the k at the end
-    //     let  counter = 0;
-    //     let current = this.head;
-    //     //if data passed into function is negative, it is not in list
-    //     if(data < 0){
-    //         return 'the num is negative, please enter positive num';
-    //     }
-    //     //head needs to not be null
-    //     //traverse if head is not null
-    //     while(current) {
-    //         counter++;
-    //         //traversing
-    //         current = current.next;
-    //     }
-    //     //index always starts at 0
-    //     //if num is positive, it will count nodes in list, which are saved in counter
-    //     let result = counter - 1 - data;
-    //     if(result < 0) {
-    //         return 'sorry not in list'
-    //     }
-    //     current = this.head;
-    //     while(result > 0) {
-    //         result--;
-    //         current = current.next;
-    //     }
-    //     return current.data;
-    // }
-
     llZip(zipList2) {
         //we will return a new list with two lists combined
         //I need to create a new list
