@@ -39,3 +39,11 @@ Given a business trip itinerary, and an Alaska Airlines route map, is the trip p
 Write a function based on the specifications above, which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
 
 ![get Edges](get-edges.png)
+
+### Challenge 38: Depth First Preorder Traversal
+
+**Feature Tasks**
+
+Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal. Without utilizing any of the built-in methods available to your language, return a collection of nodes in their pre-order depth-first traversal order.
+
+![DFS](depth-first.png)
