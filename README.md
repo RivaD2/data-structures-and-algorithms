@@ -49,13 +49,8 @@
 18. [Hashtable](data-structures/hashtable)
 19. [Repeated Word](data-structures/repeatedWord)
 20. [Tree-Intersection]()
-21. []()
-22. [Graph Implementation](data-structures/graph)
-23. []()
-24. []()
-25. []()
-26. []()
-27. 
+21. [Graph Implementation](data-structures/graph)
+22. [HashMap](data-structures/hashmap-left-join)
 
 
 
