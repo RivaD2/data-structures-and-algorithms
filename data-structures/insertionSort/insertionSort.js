@@ -14,3 +14,16 @@ let insertionSort = (arr) => {
     return arr;
 };
 console.log(insertionSort([0, 15, 3, 18, 10]));
+/*
+key = arr[1] = 15
+sublist = 1-1 = 0; ---------> first iteration
+arr[1] = 15
+arr = [0, 15, 3, 18, 10];
+
+key = arr[2] = 3
+sublist = 2-1 = 1
+arr[2] = arr[1] = 15 ----------> second iteration
+sublist = 0;
+arr[1] = 3
+arr = [0, 3, 15, 18, 10]
+*/
