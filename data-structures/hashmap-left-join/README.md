@@ -12,4 +12,4 @@
     - The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic.
     - Avoid utilizing any of the library methods available to your language.
 
-![Whiteboard]()
+![Whiteboard](left-join.png)

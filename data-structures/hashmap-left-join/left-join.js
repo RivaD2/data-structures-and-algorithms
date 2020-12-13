@@ -9,7 +9,7 @@ const leftJoin = (hashmap1, hashmap2) => {
         let arr = [];
         // I know every key in hashmap one will be returned so push all keys
         arr.push(key);
-        // I push value corresponding to the key in map1
+        // I push values corresponding to the key in map1
         arr.push(hashmap1[key]);
         // If a value is undefined, I push null into the results row;
         if(key in hashmap2 === undefined) {
