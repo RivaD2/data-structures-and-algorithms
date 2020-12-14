@@ -48,9 +48,11 @@
 17. [Quick Sort by Evaluating Java PseudoCode](data-structures/quickSort)
 18. [Hashtable](data-structures/hashtable)
 19. [Repeated Word](data-structures/repeatedWord)
-20. [Tree-Intersection]()
-21. [Graph Implementation](data-structures/graph)
-22. [HashMap](data-structures/hashmap-left-join)
+20. [Find Common Values in 2 Binary Trees](data-structures/treeIntersection)
+21. [Tree-Intersection]()
+22. [Graph Implementation](data-structures/graph)
+23. [HashMap](data-structures/hashmap-left-join)
+
 
 
 
