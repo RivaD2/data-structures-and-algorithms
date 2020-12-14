@@ -11,7 +11,7 @@ const findRepeat = str => {
     for(let word of str) {
         // Populate object and if word is already there, return word
         if(counter[word]) {
-            return word;
+            return str[word];
         } else {
             // Intialize here if value is not yet in object
             counter[word] = 1;

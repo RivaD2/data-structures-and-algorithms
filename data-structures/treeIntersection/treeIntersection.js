@@ -1,3 +1,5 @@
+const { root } = require("cheerio");
+
 class Node {
     constructor(item) {
       this.item= item;
@@ -37,9 +39,29 @@ class Node {
     };
   };
   
-  const tree_intersection = ((tree1, tree2) {
+  function tree_intersection((root1, root2) {
+     if(this.root === null) {
+       return undefined;
+     }
+     let searchArray1 = [];
+     let searchArray2 = [];
 
-  });
+    // inOrder traversal for each tree left---> root---> right
+    // function inOrder(root) {
+    //   if(root) {
+    //     inOrder(root.left);
+    //   }
+    // }
+    while(1) {
+      if(root1) {
+        searchArray1.push(root1);
+        root1 = root1.left;
+      } else if (root2) {
+        searchArray2.push(root2);
+        root2 = root2.left;
+      }
+    }
+  };
 
 
 
