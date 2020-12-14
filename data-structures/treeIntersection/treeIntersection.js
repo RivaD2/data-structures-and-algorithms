@@ -39,19 +39,20 @@ class Node {
     };
   };
   
-  function tree_intersection((root1, root2) {
+  function tree_intersection(root1, root2) {
      if(this.root === null) {
        return undefined;
      }
      let searchArray1 = [];
      let searchArray2 = [];
 
-    // inOrder traversal for each tree left---> root---> right
-    // function inOrder(root) {
-    //   if(root) {
-    //     inOrder(root.left);
-    //   }
-    // }
+    //  function inorder(root) {
+    //   if (root) 
+    //   inorder(root.left)  
+    //   console.log(root[key]);
+    //   inorder(root.right) 
+    //  }
+ 
     while(1) {
       if(root1) {
         searchArray1.push(root1);
@@ -59,12 +60,18 @@ class Node {
       } else if (root2) {
         searchArray2.push(root2);
         root2 = root2.left;
+      } else if (searchArray1.length !== 0 && searchArray2 !== 0) {
+        root1 = searchArray2[-1];
+        root2 = searchArray2[-1];
+        if(root1[key] === root2[key]) {
+          searchArray1.pop(-1);
+          searchArray2.pop(-1);
+        }
+        root1 = root1.right;
+        root2 = root2.right;
       }
     }
   };
-
-
-
 
   let tree1 = new BST();
   let tree2 = new BST();
