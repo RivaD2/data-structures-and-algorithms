@@ -2,14 +2,20 @@
 
 let insertionSort = (arr) => {
     let length = arr.length;
+    // Assume first item is current position so I start at first index
     for (let i = 1; i < length; i++) {
-        let key = arr[i];
-        let sublist = i - 1;
-        while (sublist >= 0 && arr[sublist] > key) {
-            arr[sublist + 1] = arr[sublist];
-            sublist--
+        let current = arr[i];
+        // Need another loop to look at all previous items
+        // If they are greater, they get shifted to right
+        let j = i - 1;
+        while (j >= 0 && arr[j] > current) {
+            // Shift item to right
+            // Copy item at index to right side
+            arr[j + 1] = arr[j];
+            j--
         }
-        arr[sublist + 1] = key;
+        // Store current item
+        arr[j+ 1] = current
     }
     return arr;
 };
